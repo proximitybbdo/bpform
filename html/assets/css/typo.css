@@ -1,0 +1,92 @@
+body {
+	font-family: Helvetica, Arial;
+}
+
+h1{
+	color: #fff;
+	font-size: 3em;
+	font-weight: 800;
+}
+
+a{
+	border-bottom: 1px solid #f00;
+	color: #f00;
+	text-decoration: none;
+}
+
+#menu {
+	color: #555;
+}
+
+	#menu select {
+		font-family: Monaco,Consolas, 'Courier New', Courier, monospace;
+		font-size: 1.4em;
+	}
+
+			#topmenu li em {
+			}
+			
+			#topmenu li .banner-url input {
+				font-family: Monaco, Consolas, 'Courier New', Courier, monospace;
+				font-size: 1.3em;
+				text-shadow: 0 1px 0 #fff;
+				line-height: 1.5;
+			}
+
+		#projects .content h2 {
+			font-size: 2em;
+			font-weight: 800;
+		}
+
+		#projects .content p {
+			font-size: 1.2em;
+		}
+	
+				#projects .content .projects-list li a{
+					border: 0px;
+					font-weight: 800;
+					font-size: 1.2em;
+				}	
+				
+				#projects .content .projects-list li label {
+					font-weight: bold;
+				}						
+
+				#projects .content .projects-list li em{
+					color: #aaa;
+					font-family: Monaco, Consolas, 'Courier New', Courier, monospace;
+				}
+			
+	#banner #tools{
+		color: #fff;
+	}
+	
+		#banner #tools .close{
+			font-family: Consolas, 'Courier New', Courier, monospace;
+			font-weight: 800;
+			font-size: 1.2em;
+			border: 1px solid #aaa;
+			color: #aaa;
+			text-align: center;
+			text-shadow: 0 1px 0 #fff;
+		}
+		
+		#banner #tools h3{
+			font-size: 1.6em;
+			font-weight: 800;
+			text-shadow: 0 1px 0 #aaa;
+		}
+		
+		#banner #tools a{
+			color: #444;
+			border-bottom-color: #444;
+		}			
+
+#footer {
+	color: #fff;
+}
+	
+	#footer a{
+		border-bottom-color: #fff;
+		color: #fff;
+	}

@@ -1,0 +1,41 @@
+# Prevent directory listing
+IndexIgnore *
+
+# Setup rewriting
+Options +FollowSymlinks
+
+RewriteEngine on
+RewriteBase /
+
+# Error documents
+ErrorDocument 403 /html/errors/403_forbidden.html
+ErrorDocument 404 /html/errors/404_notfound.html
+ErrorDocument 500 /html/errors/500_servererror.html
+
+# Redirect all except developer ip addresses to alternate domain 
+#RewriteCond %{REMOTE_ADDR} 	!^1\.2\.3\.4$ 		# home ip address 
+#RewriteCond %{REMOTE_ADDR} 	!^5\.6\.7\.8$ 		# work ip address 
+#RewriteRule .* 				/ 					[R=302,L]
+
+# Prevent hotlinking naar de swf files
+# RewriteCond %{HTTP_REFERER} 							!^$
+# RewriteCond %{HTTP_REFERER} 							!^http://(www\.)?bpform/.*$ 													[NC]
+# RewriteRule \.(gif|jpg|js|css|swf)$ 					- 																								[F]
+
+# Redirect to clean root url
+RewriteRule ^clients$ 																																					[R]
+RewriteRule ^clients/$ 																																					[R]
+RewriteRule ^$ 																					core/views/root.php											[L]
+
+# Redirect to clean url for clients folders
+RewriteRule ^clients/([^\./]+)$ 												clients/$1/															[R]
+RewriteRule ^clients/([^\./]+)/$ 												core/views/client.php?c=$1
+
+# Redirect to clean project url
+RewriteRule ^clients/([^\./]+)/([^\./]+)$ 							clients/$1/$2/ 													[R]
+RewriteRule ^clients/([^\./]+)/([^\./]+)/$ 							core/views/project.php?c=$1&p=$2 				[L]
+
+# Redirect to clean banner url
+RewriteRule ^clients/([^\./]+)/([^\./]+)/([^\./]+)$ 		clients/$1/$2/$3/ 											[R]
+RewriteRule ^clients/([^\./]+)/([^\./]+)/([^\./]+)/$ 		core/views/project.php?c=$1&p=$2&b=$3		[L]
+#RewriteRule ^clients/([^\./]+)/([^\./]+)/([^\./]+)/$ 	clients/$1/$2/?b=$3											[L]
