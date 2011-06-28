@@ -10,7 +10,6 @@
 	if(isset($_GET["c"])) {
 		// Check authentication
 		
-		
 		$requested_dir = "../../clients/" . $_GET["c"];
 	
 		if(is_dir($requested_dir)) { // Client exists

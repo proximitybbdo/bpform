@@ -1,3 +1,22 @@
+<?php /* Smarty version Smarty-3.0.8, created on 2011-06-28 15:40:33
+         compiled from "/Volumes/data/Users/pieterm/Documents/Projects/BPForm/core/src/clientproject/../../tpl/projects.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:16222243894e09d9d1274d03-71672167%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '2bbfaf6bbc25cb9eb5279e9e52351936901ec842' => 
+    array (
+      0 => '/Volumes/data/Users/pieterm/Documents/Projects/BPForm/core/src/clientproject/../../tpl/projects.tpl',
+      1 => 1309268432,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '16222243894e09d9d1274d03-71672167',
+  'function' => 
+  array (
+  ),
+  'has_nocache_code' => false,
+)); /*/%%SmartyHeaderCode%%*/?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="nl" lang="nl">
 <head>
@@ -48,9 +67,16 @@
 				<p>This is an overview of all the projects that exists for this client.</p>
 				<ul class="projects-list">
 					<li><label>Project Name</label> <em>Last Modification Date</em></li>
-					{foreach from=$projectList item=project}
-					<li><a href="{$project.folder_name}">{$project.folder_name}</a> <em>{$project.mod_date}</em></li>
-					{/foreach}
+					<?php  $_smarty_tpl->tpl_vars['project'] = new Smarty_Variable;
+ $_from = $_smarty_tpl->getVariable('projectList')->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+if ($_smarty_tpl->_count($_from) > 0){
+    foreach ($_from as $_smarty_tpl->tpl_vars['project']->key => $_smarty_tpl->tpl_vars['project']->value){
+?>
+					<li><a href="<?php echo $_smarty_tpl->tpl_vars['project']->value['folder_name'];?>
+"><?php echo $_smarty_tpl->tpl_vars['project']->value['folder_name'];?>
+</a> <em><?php echo $_smarty_tpl->tpl_vars['project']->value['mod_date'];?>
+</em></li>
+					<?php }} ?>
 				<ul>
 			</div>
 		</div>

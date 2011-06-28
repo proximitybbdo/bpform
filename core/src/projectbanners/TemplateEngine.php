@@ -1,6 +1,6 @@
 <?php
 
-	require(dirname(__FILE__) . "/../../libraries/dwoo/dwooAutoload.php");
+  require(dirname(__FILE__) . "/../../libraries/smarty/Smarty.class.php");
 
 	class TemplateEngine {
 		var $files = array();
@@ -14,13 +14,11 @@
 			$this->tpl_file = $tpl_file;
 		}
 	
-		function run($banner_get) {
-			$dwoo = new Dwoo(); 
-			$tpl = new Dwoo_Template_File($this->tpl_file);
-			$data = new Dwoo_Data();
+    function run($banner_get) {
+      $smarty = new Smarty;
 
-			$data->assign("projectUrl", (isset($banner_get) ? dirname($_SERVER["REDIRECT_URL"]) : $_SERVER["REDIRECT_URL"]) . "/");
-			$data->assign("bannersList", $this->convertToAssocArray($this->files));
+			$smarty->assign("projectUrl", (isset($banner_get) ? dirname($_SERVER["REDIRECT_URL"]) : $_SERVER["REDIRECT_URL"]) . "/");
+			$smarty->assign("bannersList", $this->convertToAssocArray($this->files));
 		
 			if(isset($banner_get)) {
 				$bf = $this->existsBanner($banner_get);
@@ -41,31 +39,31 @@
 				if(!is_null($bf)) {
 					// var_dump($bf);
 				
-					$data->assign("bannerGet", $bf->bannername);
-					$data->assign("bannerLink", "http://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]);
-					// $data->assign("banner_langs", );
+					$smarty->assign("bannerGet", $bf->bannername);
+					$smarty->assign("bannerLink", "http://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]);
+					// $smarty->assign("banner_langs", );
 				
-					$data->assign("bannerPath", dirname($_SERVER["REQUEST_URI"]) . "/" . $this->deploy_folder . $bf->filename);
-					$data->assign("bannerWidth", $bf->getWidth());
-					$data->assign("bannerHeight", $bf->getHeight());
+					$smarty->assign("bannerPath", dirname($_SERVER["REQUEST_URI"]) . "/" . $this->deploy_folder . $bf->filename);
+					$smarty->assign("bannerWidth", $bf->getWidth());
+					$smarty->assign("bannerHeight", $bf->getHeight());
 					
-					$data->assign("bannerHasVersions", $bf->hasVersions());
+					$smarty->assign("bannerHasVersions", $bf->hasVersions());
 					
 					if(!is_null($bf_base)) {
-						$data->assign("bannerHasVersions", true);
+						$smarty->assign("bannerHasVersions", true);
 						
-						$data->assign("bannerParentName", $bf_base->bannername);
-						$data->assign("bannersVersions", $this->convertToAssocArray($bf_base->versions));
+						$smarty->assign("bannerParentName", $bf_base->bannername);
+						$smarty->assign("bannersVersions", $this->convertToAssocArray($bf_base->versions));
 					} else {
-						$data->assign("bannerParentName", $bf->bannername);
-						$data->assign("bannersVersions", $this->convertToAssocArray($bf->versions));
+						$smarty->assign("bannerParentName", $bf->bannername);
+						$smarty->assign("bannersVersions", $this->convertToAssocArray($bf->versions));
 					}
 				}
 			}
 		
-			$data->assign("bannerIsSelected", isset($banner_get));
-		
-			$dwoo->output($tpl, $data);
+			$smarty->assign("bannerIsSelected", isset($banner_get));
+
+      $smarty->display($this->tpl_file); 
 		}
 	
 		/**

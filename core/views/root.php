@@ -4,7 +4,7 @@
 
 	require("../config.inc");
 	
-	require("../libraries/dwoo/dwooAutoload.php");
+  require("../libraries/smarty/Smarty.class.php");
 	
 	function getRealIpAddr() {
 	    if (!empty($_SERVER['HTTP_CLIENT_IP'])) // Check ip from share internet
@@ -15,12 +15,9 @@
 			return $_SERVER['REMOTE_ADDR'];
 	}
 
-	$dwoo = new Dwoo(); 
-	$tpl = new Dwoo_Template_File("../tpl/root.tpl");
-	$data = new Dwoo_Data();
-
+  $smarty = new Smarty;
 	// $data->assign("projectList", $this->convertToAssocArray($this->folders));
 
-	$dwoo->output($tpl, $data);
+  $smarty->display('../tpl/root.tpl');
 
 ?>

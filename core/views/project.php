@@ -1,16 +1,5 @@
 <?php
 
-	/** Old
-	ob_start();
-
-	require("../../../core/BannerPlatform.php");
-	
-	$bp = new BannerPlatform(dirname(__FILE__));
-	$bp->run();
-	
-	ob_end_flush();
-	*/
-
 	ob_start();
 	
 	require("../config.inc");

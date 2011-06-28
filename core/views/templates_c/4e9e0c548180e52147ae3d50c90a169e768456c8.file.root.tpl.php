@@ -1,3 +1,22 @@
+<?php /* Smarty version Smarty-3.0.8, created on 2011-06-28 15:30:12
+         compiled from "../tpl/root.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:8526000304e09d764a238b4-61200459%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '4e9e0c548180e52147ae3d50c90a169e768456c8' => 
+    array (
+      0 => '../tpl/root.tpl',
+      1 => 1262613971,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '8526000304e09d764a238b4-61200459',
+  'function' => 
+  array (
+  ),
+  'has_nocache_code' => false,
+)); /*/%%SmartyHeaderCode%%*/?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="nl" lang="nl">
 <head>
@@ -42,18 +61,7 @@
 		
 		<div class="clear">&nbsp;</div>
 
-		<div id="projects">
-			<div class="content">
-				<h2>Client Name</h2>
-				<p>This is an overview of all the projects that exists for this client.</p>
-				<ul class="projects-list">
-					<li><label>Project Name</label> <em>Last Modification Date</em></li>
-					{foreach from=$projectList item=project}
-					<li><a href="{$project.folder_name}">{$project.folder_name}</a> <em>{$project.mod_date}</em></li>
-					{/foreach}
-				<ul>
-			</div>
-		</div>
+		
 		
 		<div id="footer">
 			<div class="content">Are you experiencing problems? <a href="mailto:pieter.michels@proximity.bbdo.be">Contact us</a> and we will help you further.</div>

@@ -44,9 +44,9 @@
 			<p class="bannerlist">All versions:</p>
 			<select id="bannerlist">
 				<option>Select banner format</option>
-				{loop $bannersList}
-	 			<option value="{$_.projectUrl}{$bannername}" {if $bannername eq $_.bannerGet}selected="selected"{/if}>{$bannername}</option>
-				{/loop}
+				{foreach from=$bannersList item=banner}
+	 			<option value="{$projectUrl}{$banner.bannername}" {if $banner.bannername eq $bannerGet}selected="selected"{/if}>{$banner.bannername}</option>
+				{/foreach}
 			</select>
 		
 			{if $bannerIsSelected}
@@ -57,15 +57,15 @@
 					<p class="bannerversionslist">Has multiple versions:</p>
 					<select id="bannerversionslist">
 						<option>Select banner version</option>
-						<option value="{$_.projectUrl}{$bannerParentName}" {if $bannerParentName eq $_.bannerGet}selected="selected"{/if}>Latest version</option>
-						{loop $bannersVersions}
-			 			<option value="{$_.projectUrl}{$bannername}" {if $bannername eq $_.bannerGet}selected="selected"{/if}>Version {$version_number}</option>
-						{/loop}
+						<option value="{$projectUrl}{$bannerParentName}" {if $bannerParentName eq $bannerGet}selected="selected"{/if}>Latest version</option>
+						{foreach from=$bannersVersions item=version}
+			 			<option value="{$projectUrl}{$version.bannername}" {if $version.bannername eq $bannerGet}selected="selected"{/if}>Version {$version.version_number}</option>
+						{/foreach}
 					</select>
 				</li>
 				{/if}
 				{if $bannerLangs}
-				<li><em>switch banner to</em> {loop $bannerLangs}<a href="{$_.projectUrl}{$bannername}">{$bannername}</a>{/loop}</li>
+				<li><em>switch banner to</em> {foreach from=$bannerLangs item=lang}<a href="{$projectUrl}{$lang.bannername}">{$lang.bannername}</a>{/foreach}</li>
 				{/if}
 				<li>
 					<div class="banner-url">
