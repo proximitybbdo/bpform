@@ -38,4 +38,3 @@ RewriteRule ^clients/([^\./]+)/([^\./]+)/$ 							core/views/project.php?c=$1&p=
 # Redirect to clean banner url
 RewriteRule ^clients/([^\./]+)/([^\./]+)/([^\./]+)$ 		clients/$1/$2/$3/ 											[R]
 RewriteRule ^clients/([^\./]+)/([^\./]+)/([^\./]+)/$ 		core/views/project.php?c=$1&p=$2&b=$3		[L]
-#RewriteRule ^clients/([^\./]+)/([^\./]+)/([^\./]+)/$ 	clients/$1/$2/?b=$3											[L]
