@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.8, created on 2011-06-28 15:30:12
+<?php /* Smarty version Smarty-3.0.8, created on 2011-07-07 16:01:27
          compiled from "../tpl/root.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:8526000304e09d764a238b4-61200459%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:8115610484e15bc372168b2-20483999%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '4e9e0c548180e52147ae3d50c90a169e768456c8' => 
     array (
       0 => '../tpl/root.tpl',
-      1 => 1262613971,
+      1 => 1310047251,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '8526000304e09d764a238b4-61200459',
+  'nocache_hash' => '8115610484e15bc372168b2-20483999',
   'function' => 
   array (
   ),
@@ -34,21 +34,30 @@ $_smarty_tpl->decodeProperties(array (
 	
 	<link rel="shortcut icon" href="/html/assets/img/favico.png" />
 	
-	<link href="/html/assets/css/config.css" rel="stylesheet" type="text/css" media="screen, projection" />
-	<link href="/html/framework/css/print.css" rel="stylesheet" type="text/css" media="print" />
+	<link href="<?php echo $_smarty_tpl->getVariable('base_path')->value;?>
+html/assets/css/config.css" rel="stylesheet" type="text/css" media="screen, projection" />
+	<link href="<?php echo $_smarty_tpl->getVariable('base_path')->value;?>
+html/framework/css/print.css" rel="stylesheet" type="text/css" media="print" />
 	
-	<!--[if IE]><link rel="stylesheet" href="/html/assets/css/ie.css" type="text/css" media="screen, projection" /><![endif]-->
-	<!--[if IE 6]><link rel="stylesheet" href="/html/assets/css/ie6.css" type="text/css" media="screen, projection" /><![endif]-->
+	<!--[if IE]><link rel="stylesheet" href="<?php echo $_smarty_tpl->getVariable('base_path')->value;?>
+html/assets/css/ie.css" type="text/css" media="screen, projection" /><![endif]-->
+	<!--[if IE 6]><link rel="stylesheet" href="<?php echo $_smarty_tpl->getVariable('base_path')->value;?>
+html/assets/css/ie6.css" type="text/css" media="screen, projection" /><![endif]-->
 	
-	<script src="/html/framework/js/jquery.min.js" type="text/javascript"></script>
-	<script src="/html/framework/js/swfobject.js" type="text/javascript"></script>
+	<script src="<?php echo $_smarty_tpl->getVariable('base_path')->value;?>
+html/framework/js/jquery.min.js" type="text/javascript"></script>
+	<script src="<?php echo $_smarty_tpl->getVariable('base_path')->value;?>
+html/framework/js/swfobject.js" type="text/javascript"></script>
 	
-	<script src="/html/assets/js/jquery.dotimeout.js" type="text/javascript"></script>
+	<script src="<?php echo $_smarty_tpl->getVariable('base_path')->value;?>
+html/assets/js/jquery.dotimeout.js" type="text/javascript"></script>
 	
-	<script src="/html/assets/js/base.js" type="text/javascript"></script>
+	<script src="<?php echo $_smarty_tpl->getVariable('base_path')->value;?>
+html/assets/js/base.js" type="text/javascript"></script>
 	
 	<!--[if lt IE 7]>
-		<script src="/html/framework/js/DD_belatedPNG.0.0.8a-min.js" type="text/javascript"></script>
+		<script src="<?php echo $_smarty_tpl->getVariable('base_path')->value;?>
+html/framework/js/DD_belatedPNG.0.0.8a-min.js" type="text/javascript"></script>
 		<script type="text/javascript">
 			DD_belatedPNG.fix('*'); /* BE MORE SPECIFIC USING CLASSNAME OR ID */
 		</script>

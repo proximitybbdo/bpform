@@ -22,10 +22,10 @@
 			$this->filename = $file;
 			$this->bannername = $splitted_ext[0];
 		
-			$this->ext = $splitted_ext[1];
-			$this->name = $splitted[0];
-			$this->size = explode("x", $splitted[1]);
-			$this->lang = strtoupper($splitted[2]);
+			$this->ext = $splitted_ext[2];
+			$this->name = $splitted[0] . $splitted[1];;
+			$this->size = explode("x", $splitted[2]);
+			$this->lang = strtoupper($splitted[3]);
 			
 			// Check if versioned file
 			$this->versioned = is_numeric($splitted[count($splitted) - 1]);

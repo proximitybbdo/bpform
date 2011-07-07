@@ -3,7 +3,6 @@
 	ob_start();
 
 	require("../config.inc");
-
 	require("../src/clientproject/ClientProjects.php");
 	require("../src/clientproject/ProjectViewer.php");
 

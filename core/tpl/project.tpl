@@ -10,26 +10,23 @@
 	<meta name="revisit-after" content="31 Days" />
 	<meta name="expires" content="never" />
 	
-	<meta name="keywords" content="ProximityBBDO" />
-	<meta name="description" content="ProximityBBDO" />	
+	<link rel="shortcut icon" href="{$base_path}html/assets/img/favico.png" />
 	
-	<link rel="shortcut icon" href="/html/assets/img/favico.png" />
+	<link href="{$base_path}html/assets/css/config.css" rel="stylesheet" type="text/css" media="screen, projection" />
+	<link href="{$base_path}html/framework/css/print.css" rel="stylesheet" type="text/css" media="print" />
 	
-	<link href="/html/assets/css/config.css" rel="stylesheet" type="text/css" media="screen, projection" />
-	<link href="/html/framework/css/print.css" rel="stylesheet" type="text/css" media="print" />
+	<!--[if IE]><link rel="stylesheet" href="{$base_path}html/assets/css/ie.css" type="text/css" media="screen, projection" /><![endif]-->
+	<!--[if IE 6]><link rel="stylesheet" href="{$base_path}html/assets/css/ie6.css" type="text/css" media="screen, projection" /><![endif]-->
 	
-	<!--[if IE]><link rel="stylesheet" href="/html/assets/css/ie.css" type="text/css" media="screen, projection" /><![endif]-->
-	<!--[if IE 6]><link rel="stylesheet" href="/html/assets/css/ie6.css" type="text/css" media="screen, projection" /><![endif]-->
+	<script src="{$base_path}html/framework/js/jquery.min.js" type="text/javascript"></script>
+	<script src="{$base_path}html/framework/js/swfobject.js" type="text/javascript"></script>
 	
-	<script src="/html/framework/js/jquery.min.js" type="text/javascript"></script>
-	<script src="/html/framework/js/swfobject.js" type="text/javascript"></script>
+	<script src="{$base_path}html/assets/js/jquery.dotimeout.js" type="text/javascript"></script>
 	
-	<script src="/html/assets/js/jquery.dotimeout.js" type="text/javascript"></script>
-	
-	<script src="/html/assets/js/base.js" type="text/javascript"></script>
+	<script src="{$base_path}html/assets/js/base.js" type="text/javascript"></script>
 	
 	<!--[if lt IE 7]>
-		<script src="/html/framework/js/DD_belatedPNG.0.0.8a-min.js" type="text/javascript"></script>
+		<script src="{$base_path}html/framework/js/DD_belatedPNG.0.0.8a-min.js" type="text/javascript"></script>
 		<script type="text/javascript">
 			DD_belatedPNG.fix('*'); /* BE MORE SPECIFIC USING CLASSNAME OR ID */
 		</script>
@@ -99,14 +96,16 @@
 				<!-- CURRENT BANNER -->
 				<script type="text/javascript">
 					//<![CDATA[
-						var flashvars = { 	clickTag: "javascript:clicktagTest('clickTag')", 
-											clickTAG: "javascript:clicktagTest('clickTAG')", 
-											url: "javascript:clicktagTest('url')" };
+						var flashvars = { 	
+							clickTag: "javascript:clicktagTest('clickTag')", 
+              clickTAG: "javascript:clicktagTest('clickTAG')", 
+              url: "javascript:clicktagTest('url')" 
+            };
 											
 						var params = { allowFullScreen: true, wmode: "transparent", allowScriptAccess: "always" };
 						var attributes = { id: "flash" };
 				
-						swfobject.embedSWF("{$bannerPath}", "flash_alternative", "{$bannerWidth}", "{$bannerHeight}", "8.0.0", "/html/assets/swf/expressInstall.swf", flashvars, params, attributes);
+						swfobject.embedSWF("{$bannerPath}", "flash_alternative", "{$bannerWidth}", "{$bannerHeight}", "8.0.0", "{$base_path}html/assets/swf/expressInstall.swf", flashvars, params, attributes);
 					//]]>
 				</script>
 		

@@ -1,6 +1,6 @@
 <?php
 
-  require(dirname(__FILE__) . "/../../libraries/smarty/Smarty.class.php");
+  require("smarty/Smarty.class.php");
 
   class ProjectViewer {
     var $folders = array();
@@ -13,6 +13,7 @@
     
     function run() {
       $smarty = new Smarty;
+      $smarty->assign("base_path", BASE_PATH);
     
       $smarty->assign("projectList", $this->convertToAssocArray($this->folders));
       

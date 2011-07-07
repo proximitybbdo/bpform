@@ -1,6 +1,6 @@
 <?php
 
-  require(dirname(__FILE__) . "/../../libraries/smarty/Smarty.class.php");
+  require("smarty/Smarty.class.php");
 
 	class TemplateEngine {
 		var $files = array();
@@ -16,8 +16,11 @@
 	
     function run($banner_get) {
       $smarty = new Smarty;
+      $smarty->assign("base_path", BASE_PATH);
+      
+      $dir_url = isset($_SERVER['HTTP_X_ORIGINAL_URL']) ? $_SERVER['HTTP_X_ORIGINAL_URL'] : $_SERVER["REDIRECT_URL"]; 
 
-			$smarty->assign("projectUrl", (isset($banner_get) ? dirname($_SERVER["REDIRECT_URL"]) : $_SERVER["REDIRECT_URL"]) . "/");
+			$smarty->assign("projectUrl", (isset($banner_get) ? dirname($dir_url) : $dir_url) . "/");
 			$smarty->assign("bannersList", $this->convertToAssocArray($this->files));
 		
 			if(isset($banner_get)) {

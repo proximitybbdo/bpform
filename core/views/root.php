@@ -3,8 +3,7 @@
 	ob_start();
 
 	require("../config.inc");
-	
-  require("../libraries/smarty/Smarty.class.php");
+  require("smarty/Smarty.class.php");
 	
 	function getRealIpAddr() {
 	    if (!empty($_SERVER['HTTP_CLIENT_IP'])) // Check ip from share internet
@@ -16,7 +15,7 @@
 	}
 
   $smarty = new Smarty;
-	// $data->assign("projectList", $this->convertToAssocArray($this->folders));
+	$smarty->assign("base_path", BASE_PATH);
 
   $smarty->display('../tpl/root.tpl');
 

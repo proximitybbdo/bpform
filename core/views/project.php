@@ -3,7 +3,6 @@
 	ob_start();
 	
 	require("../config.inc");
-
 	require("../src/projectbanners/BannerPlatform.php");
 
 	if(isset($_GET["c"]) && isset($_GET["p"])) {

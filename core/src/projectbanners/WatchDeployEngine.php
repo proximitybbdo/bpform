@@ -18,14 +18,15 @@
 					if(file_exists($this->deploy_folder . $file))
 						$this->renameVersioningFile($this->deploy_folder, $file); // First rename
 
-					// Move file
-					rename($this->watch_folder . $file, $this->deploy_folder . $file);
-				
-					// Set modification date to current
-					touch($this->deploy_folder . $file);
-			
+          // Move file
+          if(copy($this->watch_folder . $file, $this->deploy_folder . $file)) {
+            unlink($this->watch_folder . $file);
+          
+            // Set modification date to current
+            touch($this->deploy_folder . $file);
+          }  
 					// Next
-				    next($watch_files);
+          next($watch_files);
 				}
 			} else {
 				throw new Exception("Folders are not valid.");
