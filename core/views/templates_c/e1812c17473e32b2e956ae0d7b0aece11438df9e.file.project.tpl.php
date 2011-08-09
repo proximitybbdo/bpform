@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.8, created on 2011-07-07 16:03:30
+<?php /* Smarty version Smarty-3.0.8, created on 2011-08-09 17:26:21
          compiled from "/Volumes/data/Users/pieterm/Documents/Projects/BPForm/core/src/projectbanners/../../tpl/project.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:7798331214e15bcb297cf47-32005178%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:7427347614e41519d924df4-26231188%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'e1812c17473e32b2e956ae0d7b0aece11438df9e' => 
     array (
       0 => '/Volumes/data/Users/pieterm/Documents/Projects/BPForm/core/src/projectbanners/../../tpl/project.tpl',
-      1 => 1310047286,
+      1 => 1312903577,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '7798331214e15bcb297cf47-32005178',
+  'nocache_hash' => '7427347614e41519d924df4-26231188',
   'function' => 
   array (
   ),
@@ -29,10 +29,8 @@ $_smarty_tpl->decodeProperties(array (
 	<meta name="revisit-after" content="31 Days" />
 	<meta name="expires" content="never" />
 	
-	<meta name="keywords" content="ProximityBBDO" />
-	<meta name="description" content="ProximityBBDO" />	
-	
-	<link rel="shortcut icon" href="/html/assets/img/favico.png" />
+	<link rel="shortcut icon" href="<?php echo $_smarty_tpl->getVariable('base_path')->value;?>
+html/assets/img/favico.png" />
 	
 	<link href="<?php echo $_smarty_tpl->getVariable('base_path')->value;?>
 html/assets/css/config.css" rel="stylesheet" type="text/css" media="screen, projection" />
@@ -71,7 +69,7 @@ html/framework/js/DD_belatedPNG.0.0.8a-min.js" type="text/javascript"></script>
 		<div id="menu">
 			<p class="bannerlist">All versions:</p>
 			<select id="bannerlist">
-				<option>Select banner format</option>
+				<option value="-">Select banner format</option>
 				<?php  $_smarty_tpl->tpl_vars['banner'] = new Smarty_Variable;
  $_from = $_smarty_tpl->getVariable('bannersList')->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 if ($_smarty_tpl->_count($_from) > 0){
@@ -91,7 +89,7 @@ if ($_smarty_tpl->_count($_from) > 0){
 				<li>	
 					<p class="bannerversionslist">Has multiple versions:</p>
 					<select id="bannerversionslist">
-						<option>Select banner version</option>
+						<option value="-">Select banner version</option>
 						<option value="<?php echo $_smarty_tpl->getVariable('projectUrl')->value;?>
 <?php echo $_smarty_tpl->getVariable('bannerParentName')->value;?>
 " <?php if ($_smarty_tpl->getVariable('bannerParentName')->value==$_smarty_tpl->getVariable('bannerGet')->value){?>selected="selected"<?php }?>>Latest version</option>
@@ -151,9 +149,11 @@ if ($_smarty_tpl->_count($_from) > 0){
 				<!-- CURRENT BANNER -->
 				<script type="text/javascript">
 					//<![CDATA[
-						var flashvars = { 	clickTag: "javascript:clicktagTest('clickTag')", 
-											clickTAG: "javascript:clicktagTest('clickTAG')", 
-											url: "javascript:clicktagTest('url')" };
+						var flashvars = { 	
+							clickTag: "javascript:clicktagTest('clickTag')", 
+              clickTAG: "javascript:clicktagTest('clickTAG')", 
+              url: "javascript:clicktagTest('url')" 
+            };
 											
 						var params = { allowFullScreen: true, wmode: "transparent", allowScriptAccess: "always" };
 						var attributes = { id: "flash" };
@@ -161,7 +161,8 @@ if ($_smarty_tpl->_count($_from) > 0){
 						swfobject.embedSWF("<?php echo $_smarty_tpl->getVariable('bannerPath')->value;?>
 ", "flash_alternative", "<?php echo $_smarty_tpl->getVariable('bannerWidth')->value;?>
 ", "<?php echo $_smarty_tpl->getVariable('bannerHeight')->value;?>
-", "8.0.0", "/html/assets/swf/expressInstall.swf", flashvars, params, attributes);
+", "8.0.0", "<?php echo $_smarty_tpl->getVariable('base_path')->value;?>
+html/assets/swf/expressInstall.swf", flashvars, params, attributes);
 					//]]>
 				</script>
 		

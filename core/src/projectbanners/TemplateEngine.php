@@ -17,6 +17,7 @@
     function run($banner_get) {
       $smarty = new Smarty;
       $smarty->assign("base_path", BASE_PATH);
+      // $smarty->assign("base_path", dirname($_SERVER["REQUEST_URI"]) . '/../../../');
       
       $dir_url = isset($_SERVER['HTTP_X_ORIGINAL_URL']) ? $_SERVER['HTTP_X_ORIGINAL_URL'] : $_SERVER["REDIRECT_URL"]; 
 

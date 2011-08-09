@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.8, created on 2011-07-07 16:01:27
+<?php /* Smarty version Smarty-3.0.8, created on 2011-08-09 15:59:48
          compiled from "../tpl/root.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:8115610484e15bc372168b2-20483999%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:19629937464e413d54517571-60861476%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '4e9e0c548180e52147ae3d50c90a169e768456c8' => 
     array (
       0 => '../tpl/root.tpl',
-      1 => 1310047251,
+      1 => 1310049368,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '8115610484e15bc372168b2-20483999',
+  'nocache_hash' => '19629937464e413d54517571-60861476',
   'function' => 
   array (
   ),
@@ -29,10 +29,8 @@ $_smarty_tpl->decodeProperties(array (
 	<meta name="revisit-after" content="31 Days" />
 	<meta name="expires" content="never" />
 	
-	<meta name="keywords" content="ProximityBBDO" />
-	<meta name="description" content="ProximityBBDO" />	
-	
-	<link rel="shortcut icon" href="/html/assets/img/favico.png" />
+	<link rel="shortcut icon" href="<?php echo $_smarty_tpl->getVariable('base_path')->value;?>
+html/assets/img/favico.png" />
 	
 	<link href="<?php echo $_smarty_tpl->getVariable('base_path')->value;?>
 html/assets/css/config.css" rel="stylesheet" type="text/css" media="screen, projection" />

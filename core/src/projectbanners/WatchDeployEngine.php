@@ -2,7 +2,10 @@
 
 	class WatchDeployEngine {
 		var $watch_folder = "";
-		var $deploy_folder = "";
+    var $deploy_folder = "";
+  
+    var $db_ready = false;
+    var $db_inst;
 	
 		function __construct($watch_dir, $deploy_dir) {
 			$this->watch_folder = $watch_dir;
@@ -10,31 +13,33 @@
 		}
 	
 		function run() {
-			if (is_dir($this->watch_folder) && is_dir($this->deploy_folder)) {
-				$watch_files = $this->fetchFiles($this->watch_folder);
+			if(is_dir($this->watch_folder) && is_dir($this->deploy_folder)) {
+        $watch_files = $this->fetch_files($this->watch_folder);
 
-				while ($file = current($watch_files)) {
-					// Check if files exists in deploy
-					if(file_exists($this->deploy_folder . $file))
-						$this->renameVersioningFile($this->deploy_folder, $file); // First rename
-
-          // Move file
-          if(copy($this->watch_folder . $file, $this->deploy_folder . $file)) {
-            unlink($this->watch_folder . $file);
+        while ($file = current($watch_files)) {
+          $hashed = $this->hash_file($this->watch_folder . $file);
           
-            // Set modification date to current
-            touch($this->deploy_folder . $file);
-          }  
+          if(!$this->file_exists_in_db($hashed)) { // Check if file isn't processed already
+            if(file_exists($this->deploy_folder . $file)) // Check if files already exists in deploy
+              $this->rename_versioning_file($this->deploy_folder, $file); // First rename
+
+            if(copy($this->watch_folder . $file, $this->deploy_folder . $file)) { // Copy file
+              $this->file_save_in_db($hashed); // Save hash of file in db
+
+              touch($this->deploy_folder . $file); // Set modification date to current
+            }  
+          }
+
 					// Next
           next($watch_files);
 				}
 			} else {
 				throw new Exception("Folders are not valid.");
-			}	
+      }	
 		}
 	
 		function read() {
-			$deploy_files = $this->fetchFiles($this->deploy_folder);
+			$deploy_files = $this->fetch_files($this->deploy_folder);
 			$deployed_files = array();
 			$deployed_versioned_files = array();
 		
@@ -42,9 +47,8 @@
 			while ($file = current($deploy_files)) {
 				$banner = new BannerFile($file);
 				
-				if($banner->isVersioned()) {
+				if($banner->isVersioned())
 					$deployed_versioned_files[count($deployed_versioned_files)] = $banner;
-				}
 				
 				next($deploy_files);
 			}
@@ -61,9 +65,8 @@
 					reset($deployed_versioned_files);
 					
 					while ($version = current($deployed_versioned_files)) {
-						if($version->versioned_base == $banner->bannername) {
+						if($version->versioned_base == $banner->bannername)
 							$banner->addVersion($version);
-						}
 					
 						next($deployed_versioned_files);
 					}
@@ -78,7 +81,7 @@
 		/**
 		 * Fetch files from directory.
 		 */
-		function fetchFiles($folder) {
+		function fetch_files($folder) {
 			$files = array();
 		
 			if ($dir = opendir($folder)) {
@@ -98,7 +101,7 @@
 		/**
 		 * Rename files with versioning check
 		 */
-		function renameVersioningFile($trgt_dir, $trgt_file) {
+		function rename_versioning_file($trgt_dir, $trgt_file) {
 			$ctr = 1;
 			$name = current(explode(".", $trgt_file));
 			$ext = end(explode(".", $trgt_file));
@@ -107,5 +110,47 @@
 				$ctr++;
 
 			rename($trgt_dir . $trgt_file, $trgt_dir . $name . "_" . $ctr . "." . $ext);
-		}
+    }
+
+    function init_db() {
+      if(!$this->db_inst) {
+        try  {
+          $this->db_inst = new PDO('sqlite:../banners_files.sqlite');
+        } catch(Exception $e) {
+          die($e);
+        }
+      }
+      
+      if($this->db_inst) {
+        if(!$this->db_inst->exec("SELECT * FROM files")) {
+          $query = 'CREATE TABLE files (file_hash TEXT)';
+                 
+          $this->db_inst->exec($query);
+        }
+      } 
+    }
+
+    function file_exists_in_db($hash) {
+      $this->init_db(); 
+
+      $query = "SELECT * FROM files WHERE file_hash = '" . $hash . "'";
+      $result = $this->db_inst->query($query);
+      
+      if($this->db_inst->query($query)->fetch())
+        return true;
+
+      return false;
+    }
+
+    function file_save_in_db($hash) {
+      $this->init_db(); 
+      
+      $query = 'INSERT INTO files (file_hash) VALUES ("' . $hash . '")';
+
+      $this->db_inst->exec($query);
+    }
+
+    function hash_file($file) {
+      return md5_file($file); 
+    }
 	}

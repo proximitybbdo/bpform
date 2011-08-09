@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.8, created on 2011-07-07 16:02:40
+<?php /* Smarty version Smarty-3.0.8, created on 2011-08-09 16:00:36
          compiled from "/Volumes/data/Users/pieterm/Documents/Projects/BPForm/core/src/clientproject/../../tpl/projects.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:11609976434e15bc80be9112-95895969%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:10106378864e413d84657dd9-59715973%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '2bbfaf6bbc25cb9eb5279e9e52351936901ec842' => 
     array (
       0 => '/Volumes/data/Users/pieterm/Documents/Projects/BPForm/core/src/clientproject/../../tpl/projects.tpl',
-      1 => 1310047277,
+      1 => 1310049333,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '11609976434e15bc80be9112-95895969',
+  'nocache_hash' => '10106378864e413d84657dd9-59715973',
   'function' => 
   array (
   ),
@@ -29,10 +29,8 @@ $_smarty_tpl->decodeProperties(array (
 	<meta name="revisit-after" content="31 Days" />
 	<meta name="expires" content="never" />
 	
-	<meta name="keywords" content="ProximityBBDO" />
-	<meta name="description" content="ProximityBBDO" />	
-	
-	<link rel="shortcut icon" href="/html/assets/img/favico.png" />
+	<link rel="shortcut icon" href="<?php echo $_smarty_tpl->getVariable('base_path')->value;?>
+html/assets/img/favico.png" />
 	
 	<link href="<?php echo $_smarty_tpl->getVariable('base_path')->value;?>
 html/assets/css/config.css" rel="stylesheet" type="text/css" media="screen, projection" />

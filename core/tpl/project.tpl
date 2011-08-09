@@ -40,7 +40,7 @@
 		<div id="menu">
 			<p class="bannerlist">All versions:</p>
 			<select id="bannerlist">
-				<option>Select banner format</option>
+				<option value="-">Select banner format</option>
 				{foreach from=$bannersList item=banner}
 	 			<option value="{$projectUrl}{$banner.bannername}" {if $banner.bannername eq $bannerGet}selected="selected"{/if}>{$banner.bannername}</option>
 				{/foreach}
@@ -53,7 +53,7 @@
 				<li>	
 					<p class="bannerversionslist">Has multiple versions:</p>
 					<select id="bannerversionslist">
-						<option>Select banner version</option>
+						<option value="-">Select banner version</option>
 						<option value="{$projectUrl}{$bannerParentName}" {if $bannerParentName eq $bannerGet}selected="selected"{/if}>Latest version</option>
 						{foreach from=$bannersVersions item=version}
 			 			<option value="{$projectUrl}{$version.bannername}" {if $version.bannername eq $bannerGet}selected="selected"{/if}>Version {$version.version_number}</option>

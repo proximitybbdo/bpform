@@ -1,2 +1,5 @@
 clients/*
 core/views/templates_c/*
+info.php
+core/*.sqlite
+.DS_Store
