@@ -1,6 +1,6 @@
 <?php
 
-class ProjectFolder {
+class Project {
 	var $folder_name;
 	var $folder_dir;
 	var $mod_time;

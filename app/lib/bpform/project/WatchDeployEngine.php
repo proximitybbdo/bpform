@@ -16,7 +16,7 @@
 			if(is_dir($this->watch_folder) && is_dir($this->deploy_folder)) {
         $watch_files = $this->fetch_files($this->watch_folder);
 
-        while ($file = current($watch_files)) {
+        while($file = current($watch_files)) {
           $hashed = $this->hash_file($this->watch_folder . $file);
           
           if(!$this->file_exists_in_db($hashed)) { // Check if file isn't processed already
@@ -30,12 +30,10 @@
             }  
           }
 
-					// Next
-          next($watch_files);
+          next($watch_files); // Next
 				}
-			} else {
+			} else
 				throw new Exception("Folders are not valid.");
-      }	
 		}
 	
 		function read() {
@@ -45,19 +43,19 @@
 		
 			// Save versioned 
 			while ($file = current($deploy_files)) {
-				$banner = new BannerFile($file);
+				$banner = new Banner($file);
 				
 				if($banner->isVersioned())
 					$deployed_versioned_files[count($deployed_versioned_files)] = $banner;
 				
-				next($deploy_files);
+				next($deploy_files); // Next file
 			}
 			
 			reset($deploy_files);
 			
 			// Loop files, skip versioned
 			while ($file = current($deploy_files)) {
-				$banner = new BannerFile($file);
+				$banner = new Banner($file);
 				
 				if(!$banner->isVersioned()) {
 					$deployed_files[count($deployed_files)] = $banner;
@@ -72,7 +70,7 @@
 					}
 				}
 				
-				next($deploy_files);
+				next($deploy_files); // Next file
 			}
 		
 			return $deployed_files;
@@ -115,7 +113,7 @@
     function init_db() {
       if(!$this->db_inst) {
         try  {
-          $this->db_inst = new PDO('sqlite:../banners_files.sqlite');
+          $this->db_inst = new PDO('sqlite:assets/data/banners_files.sqlite');
         } catch(Exception $e) {
           die($e);
         }

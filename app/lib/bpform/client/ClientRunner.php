@@ -1,6 +1,6 @@
 <?php
 
-class ClientProjects {
+class ClientRunner {
 	var $requested_dir;
 	var $fetched_folder;
 	
@@ -43,7 +43,7 @@ class ClientProjects {
 				clearstatcache();
 
 				if(is_dir($path . "/" . $file) && $file != "." && $file != "..")
-					$files[count($files)] = new ProjectFolder($this->requested_dir . "/" . $file);
+					$files[count($files)] = new Project($this->requested_dir . "/" . $file);
 			}
 			
 			closedir($dir);

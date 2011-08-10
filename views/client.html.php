@@ -6,9 +6,9 @@
 
     <ul class="projects-list">
       <li><label>Project Name</label> <em>Last Modification Date</em></li>
-      <? foreach($project_folders as $project) { ?>
-      <li><a href="<? echo $project->folder_name; ?>"><? echo $project->folder_name; ?></a> <em><? echo $project->mod_date; ?></em></li>
-      <? } ?>
+      <?php foreach($project_folders as $project) { ?>
+      <li><a href="<?php echo($base_path_dir); ?><?php echo $project->folder_name; ?>"><?php echo $project->folder_name; ?></a> <em><?php echo $project->mod_date; ?></em></li>
+      <?php } ?>
     <ul>
   </div>
 </div>

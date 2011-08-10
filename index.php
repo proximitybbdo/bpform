@@ -17,7 +17,8 @@ foreach (glob($lib_directory . 'bpform/project/*.php') as $filename)
 // Default configuration. You probably won't need to change any of this.
 function configure() {
   // Define the base path based on the index.php file (and its location)
-  define('BASE_PATH', str_replace('\\', '', dirname(dirname($_SERVER['SCRIPT_NAME']) . '/.') ));
+  define('BASE_PATH', str_replace('\\', '', dirname(dirname($_SERVER['SCRIPT_NAME']) . '/.') ) . (isset($_SERVER['HTTP_X_ORIGINAL_URL']) ? '/' : ''));
+  define('BASE_PATH_DIR', isset($_SERVER['HTTP_X_ORIGINAL_URL']) ? $_SERVER['HTTP_X_ORIGINAL_URL'] . '/' : $_SERVER["REDIRECT_URL"]);
 
   // Environment variable. You could use this to take different actions when on production or development environment.
   option('env', ENV_DEVELOPMENT);

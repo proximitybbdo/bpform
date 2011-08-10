@@ -8,10 +8,7 @@ function project() {
     $bp = new ProjectRunner($requested_dir);
     $files = $bp->run();
 
-    set("base_path", BASE_PATH);
-    
-    $dir_url = isset($_SERVER['HTTP_X_ORIGINAL_URL']) ? $_SERVER['HTTP_X_ORIGINAL_URL'] : $_SERVER["REDIRECT_URL"]; 
-    $project_url = (isset($banner_get) ? dirname($dir_url) : $dir_url) . "/";
+    $project_url = (isset($banner_get) ? dirname(BASE_PATH_DIR) : BASE_PATH_DIR) . (isset($_SERVER['HTTP_X_ORIGINAL_URL']) ? '/' : '/');
 
     set("project_url", $project_url);
     set("banners_list", $files);
@@ -21,7 +18,7 @@ function project() {
       
       if(is_null($bf)) {
         // Could be a versioned file
-        $bf = new BannerFile($banner_get . ".swf");
+        $bf = new Banner($banner_get . ".swf");
         
         if($bf->isVersioned()) {
           $bf_base = exists_banner($files, $bf->versioned_base);
@@ -35,7 +32,7 @@ function project() {
         set("banner_get", $bf->bannername);
         set("banner_link", "http://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]);
       
-        set("banner_path", '/' . $bp->getDeployFolder() . $bf->filename);
+        set("banner_path", BASE_PATH . $bp->getDeployFolder() . $bf->filename);
         set("banner_width", $bf->getWidth());
         set("banner_height", $bf->getHeight());
 
@@ -47,7 +44,7 @@ function project() {
           set("banne_parent_name", $bf_base->bannername);
           set("banners_versions", $bf_base->versions);
         } else {
-          set("banne_parent_name", $bf->bannername);
+          set("banner_parent_name", $bf->bannername);
           set("banners_versions", $bf->versions);
         }
       }

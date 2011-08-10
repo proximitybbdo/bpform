@@ -5,7 +5,7 @@
 	
   <title>Banner Platform</title>
 
-  <link rel="stylesheet" type="text/css" href="<? echo($base_path); ?>assets/css/style.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo($base_path); ?>assets/css/style.css">
 
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
 
@@ -25,7 +25,7 @@
   </div>
 
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script> 
-  <script type="text/javascript" src="<? echo($base_path); ?>assets/js/base.js"></script>
+  <script type="text/javascript" src="<?php echo($base_path); ?>assets/js/base.js"></script>
 
 </body>
 </html>

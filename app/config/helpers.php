@@ -5,6 +5,7 @@
 // ``lang`` will give your the language based on an optional language url (eg. /nl-BE/...)
 function before_defaults() {
   set('base_path', BASE_PATH);
+  set('base_path_dir', BASE_PATH_DIR);
 
   // Set lang if first controller is a language
   $url_parts = url_parts();

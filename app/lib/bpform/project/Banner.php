@@ -1,6 +1,6 @@
 <?php 
 
-	class BannerFile {
+	class Banner {
 		var $bannername = "";
 		var $filename = "";
 		var $name = "";
