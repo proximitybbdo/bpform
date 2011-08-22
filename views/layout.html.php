@@ -1,7 +1,14 @@
 <!doctype html>  
 <html class="no-js">
 <head>
-	<meta charset="utf-8">
+  <meta charset="utf-8">
+
+  <!--
+  <?php 
+echo($base_path . "\n");
+echo($base_path_dir);
+  ?>
+  -->
 	
   <title>Banner Platform</title>
 

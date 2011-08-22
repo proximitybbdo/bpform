@@ -11,6 +11,6 @@ function client() {
     
     return html('client.html.php', 'layout.html.php');
   } else 
-    echo "Client does not exists or you don't have the permission to view the clients project overview.";  
+    header('Location: ' . BASE_PATH);
 }
 

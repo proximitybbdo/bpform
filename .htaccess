@@ -2,9 +2,7 @@
   Options +FollowSymlinks
   Options +Indexes
   RewriteEngine on
-  RewriteBase /
-  #RewriteBase //front/jobs/ 
-  # ING-Mobile/front/jobs # if your app is in a subfolder
+  RewriteBase /BPForm
 
   # test string is a valid files
   RewriteCond %{SCRIPT_FILENAME} !-f

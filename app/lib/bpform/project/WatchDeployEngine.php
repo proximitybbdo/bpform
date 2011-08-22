@@ -113,7 +113,7 @@
     function init_db() {
       if(!$this->db_inst) {
         try  {
-          $this->db_inst = new PDO('sqlite:assets/data/banners_files.sqlite');
+          $this->db_inst = new PDO('sqlite:clients/banners_files.sqlite');
         } catch(Exception $e) {
           die($e);
         }

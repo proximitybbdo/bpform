@@ -8,7 +8,7 @@ function project() {
     $bp = new ProjectRunner($requested_dir);
     $files = $bp->run();
 
-    $project_url = (isset($banner_get) ? dirname(BASE_PATH_DIR) : BASE_PATH_DIR) . (isset($_SERVER['HTTP_X_ORIGINAL_URL']) ? '/' : '/');
+    $project_url = isset($banner_get) ? dirname(BASE_PATH_DIR) . '/' : BASE_PATH_DIR;
 
     set("project_url", $project_url);
     set("banners_list", $files);
@@ -64,8 +64,7 @@ function exists_banner($files, $banner) {
   reset($files);
 
   while ($bf = current($files)) {
-    if(	$bf->bannername == $banner 
-      && $bf->isBanner())
+    if(	$bf->bannername == $banner && $bf->isBanner())
       return $bf;
 
     next($files);
