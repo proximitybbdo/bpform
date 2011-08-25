@@ -1,0 +1,5 @@
+.clearfix{zoom:1;}.clearfix:before,.clearfix:after{display:table;content:"";}
+.clearfix:after{clear:both;}
+.center-block{display:block;margin:0 auto;}
+.container{width:940px;margin:0 auto;zoom:1;}.container:before,.container:after{display:table;content:"";}
+.container:after{clear:both;}

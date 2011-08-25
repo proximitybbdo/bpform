@@ -226,34 +226,3 @@ footer{margin-top:17px;padding-top:17px;border-top:1px solid #eee;}
 .popover .inner{background-color:#333;background-color:rgba(0, 0, 0, 0.8);*background-color:#333;padding:3px;overflow:hidden;width:280px;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;-webkit-box-shadow:0 3px 7px rgba(0, 0, 0, 0.3);-moz-box-shadow:0 3px 7px rgba(0, 0, 0, 0.3);box-shadow:0 3px 7px rgba(0, 0, 0, 0.3);}
 .popover .title{background-color:#f5f5f5;padding:9px 15px;line-height:1;-webkit-border-radius:3px 3px 0 0;-moz-border-radius:3px 3px 0 0;border-radius:3px 3px 0 0;border-bottom:1px solid #eee;}
 .popover .content{background-color:#ffffff;padding:14px;-webkit-border-radius:0 0 3px 3px;-moz-border-radius:0 0 3px 3px;border-radius:0 0 3px 3px;-webkit-background-clip:padding-box;-moz-background-clip:padding-box;background-clip:padding-box;}.popover .content p,.popover .content ul,.popover .content ol{margin-bottom:0;}
-html,body{background:#ffffff url('../img/noise.png');}
-body{width:1000px;margin:0 auto;}
-#container{position:relative;}
-ul li{list-style-type:none;}
-h1{background:transparent url(../img/logo.png) no-repeat 10px center;margin-top:10px;height:120px;width:120px;display:block;line-height:25px;text-indent:-9999px;}
-#menu{height:20px;line-height:20px;padding:10px;}#menu select{font-family:Monaco,Consolas,'Courier New',Courier,monospace;margin-top:2px;margin-left:10px;width:400px;}
-#menu li .banner-url input{font-family:Monaco,Consolas,'Courier New',Courier,monospace;text-shadow:0 1px 0 #fff;line-height:1.5;}
-#menu p.bannerlist{zoom:1;float:left;padding-top:4px;}#menu p.bannerlist:before,#menu p.bannerlist:after{display:table;content:"";}
-#menu p.bannerlist:after{clear:both;}
-#topmenu{zoom:1;position:absolute;right:0;top:0;margin-right:-1px;}#topmenu:before,#topmenu:after{display:table;content:"";}
-#topmenu:after{clear:both;}
-#topmenu li{float:left;margin-left:20px;}#topmenu li #bannerversionslist{float:left;margin-left:10px;width:150px;}
-#topmenu li p.bannerversionslist{float:left;}
-#topmenu li .banner-url{background-color:#FAFAFF;border:1px solid #D5D9E0;margin:0 0.5em;padding:0.2em 0.4em;}#topmenu li .banner-url input{background-color:#FAFAFF;font-size:1.2em;border:0 none;width:400px;outline-color:-moz-use-text-color;outline-style:none;outline-width:medium;}
-#projects{position:relative;}#projects .content{padding:10px;}#projects .content h2{font-weight:800;margin-bottom:10px;}
-#projects .content .projects-list{zoom:1;zoom:1;clear:both;}#projects .content .projects-list:before,#projects .content .projects-list:after{display:table;content:"";}
-#projects .content .projects-list:after{clear:both;}
-#projects .content .projects-list:before,#projects .content .projects-list:after{display:table;content:"";}
-#projects .content .projects-list:after{clear:both;}
-#projects .content .projects-list a,#projects .content .projects-list label{overflow:hidden;}
-#projects .content .projects-list a,#projects .content .projects-list label,#projects .content .projects-list em{display:block;float:left;height:14px;padding:5px 5px 5px 0;}
-#projects .content .projects-list a{border:0px;font-weight:800;}
-#projects .content .projects-list label{font-weight:bold;background:none;}
-#projects .content .projects-list em{color:#aaa;font-family:Monaco,Consolas,'Courier New',Courier,monospace;}
-#banner{position:relative;}#banner .content{padding:10px;}
-#banner #tools{color:#fff;background:#ddd;position:absolute;padding:0px 0px 5px 0px;height:30px;overflow:hidden;top:20px;right:15px;width:200px;}#banner #tools ul{margin-top:8px;margin-left:0;}#banner #tools ul li{margin-left:10px;}
-#banner #tools .content{padding-top:0px;}
-#banner #tools .close{font-family:Consolas,'Courier New',Courier,monospace;font-weight:800;color:#aaa;text-align:center;display:block;height:13px;position:absolute;top:10px;right:10px;width:10px;}
-#banner #tools h3{font-weight:800;margin-bottom:5px;padding-top:0px;}
-#footer{color:#333;bottom:0px;height:30px;line-height:20px;position:fixed;}#footer .content{padding:5px;}
-#flash{display:block;margin:0 auto;margin-top:50px;}

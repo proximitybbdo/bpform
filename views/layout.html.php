@@ -5,6 +5,8 @@
 
   <title>Banner Platform</title>
 
+	<link rel="shortcut icon" href="<?php echo($base_path); ?>assets/img/favicon.png">
+
   <link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap-1.1.0.min.css">
   <link rel="stylesheet" type="text/css" href="<?php echo($base_path); ?>assets/css/style.css">
 
