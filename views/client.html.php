@@ -1,14 +1,24 @@
 <div id="projects">
   <div class="content">
-    <h2>Client Name</h2>
+  <h2><?php echo($client); ?></h2>
 
-    <p>This is an overview of all the projects that exists for this client.</p>
+  <p>This is an overview of all the projects that exists for <strong><?php echo($client); ?></strong>.</p>
 
-    <ul class="projects-list">
-      <li><label>Project Name</label> <em>Last Modification Date</em></li>
+    <table class="projects-list common-table zebra-striped">
+      <thead>
+        <tr>
+        	<td>Project name</td>
+        	<td>Last modification date</td>
+        </tr>
+      </thead>
+      <tbody>
       <?php foreach($project_folders as $project) { ?>
-      <li><a href="<?php echo($base_path_dir); ?><?php echo $project->folder_name; ?>"><?php echo $project->folder_name; ?></a> <em><?php echo $project->mod_date; ?></em></li>
+      	<tr>
+      		<td><a href="<?php echo($base_path_dir); ?><?php echo $project->folder_name; ?>"><?php echo $project->folder_name; ?></a></td>
+      		<td><em><?php echo $project->mod_date; ?></em></td>
+      	</tr>
       <?php } ?>
-    <ul>
+      </tbody>
+    <table>
   </div>
 </div>

@@ -12,6 +12,7 @@ echo($base_path_dir);
 	
   <title>Banner Platform</title>
 
+  <link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap-1.1.0.min.css">
   <link rel="stylesheet" type="text/css" href="<?php echo($base_path); ?>assets/css/style.css">
 
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
@@ -21,7 +22,7 @@ echo($base_path_dir);
 
   <h1>Proximity BBDO</h1>
 
-  <div id="main" role="main">
+  <div id="container" role="main">
 		<?php echo($content); ?>
   </div>
 

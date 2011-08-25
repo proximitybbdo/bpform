@@ -8,6 +8,7 @@ function client() {
     $project_folders = $cp->run();
 
     set('project_folders', $project_folders);
+    set('client', ucfirst(params('client')));
     
     return html('client.html.php', 'layout.html.php');
   } else 

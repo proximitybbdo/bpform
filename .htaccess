@@ -2,7 +2,7 @@
   Options +FollowSymlinks
   Options +Indexes
   RewriteEngine on
-  RewriteBase /BPForm
+  RewriteBase /
 
   # test string is a valid files
   RewriteCond %{SCRIPT_FILENAME} !-f

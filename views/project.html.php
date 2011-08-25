@@ -15,13 +15,15 @@
     <li>	
       <p class="bannerversionslist">Has multiple versions:</p>
 
-      <select id="bannerversionslist">
-        <option value="-">Select banner version</option>
-        <option value="<?php echo $project_url; ?><?php echo $banner_parent_name; ?>" <?php if($banner_parent_name == $banner_get) { ?>selected="selected"<?php } ?>>Latest version</option>
-        <?php foreach($banners_versions as $version) { ?>
-        <option value="<?php echo $project_url; ?><?php echo $version->bannername; ?>" <?php if($version->bannername == $banner_get) { ?>selected="selected"<?php } ?>>Version "<?php echo $version.version_number; ?></option>
-        <?php } ?>
-      </select>
+      <form action="">
+        <select id="bannerversionslist">
+          <option value="-">Select banner version</option>
+          <option value="<?php echo $project_url; ?><?php echo $banner_parent_name; ?>" <?php if($banner_parent_name == $banner_get) { ?>selected="selected"<?php } ?>>Latest version</option>
+          <?php foreach($banners_versions as $version) { ?>
+          <option value="<?php echo $project_url; ?><?php echo $version->bannername; ?>" <?php if($version->bannername == $banner_get) { ?>selected="selected"<?php } ?>>Version "<?php echo $version.version_number; ?></option>
+          <?php } ?>
+        </select>
+      </form>
     </li>
     <?php } ?>
 

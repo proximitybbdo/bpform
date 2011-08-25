@@ -1,31 +1,33 @@
-@import "boilerplate-reset.less";
-@import "boilerplate-utils.less";
+@import "lib/bootstrap.less";
+
+html, body {
+
+	background: #fff url('../img/noise.png');
+}
 
 body {
-	font-family: Helvetica, Arial;
-	font-size: 12px;
+	width: 1000px;
+	margin: 0 auto;
+}
+
+
+ul li {
+	list-style-type: none;
 }
 
 h1{
-	color: #fff;
-	font-size: 3em;
-	font-weight: 800;
-  background: #f00 url(../img/logo.png) no-repeat 10px center;
-	background-position-x: 10px;
-	height: 25px;
+  background: transparent url(../img/logo.png) no-repeat 10px center;
+	height: 120px;
+	width: 120px;
+	display: block;
 	line-height: 25px;
-	padding: 10px;
 	text-indent: -9999px;
 }
 
 a{
-	border-bottom: 1px solid #f00;
-	color: #f00;
-	text-decoration: none;
 }
 
 #menu {
-	color: #555;
 	height: 20px;
 	line-height: 20px;
 	padding: 10px;
@@ -112,24 +114,20 @@ a{
     .projects-list {
       .clearfix;
 
-      margin: 20px 0px 0px 20px;
 
-    	li {
     		.clearfix;
 
     		clear: both;
 
     		a, label {
-					background: #f5f5f5;
 					overflow: hidden;
-					width: 200px;
 				}		
 				
     		a, label, em {
 					display: block;
 					float: left;
 					height: 14px;
-					padding: 5px;
+					padding: 5px 5px 5px 0;
 				}
 
     		a {
@@ -146,9 +144,7 @@ a{
         em{
           color: #aaa;
           font-family: Monaco, Consolas, 'Courier New', Courier, monospace;
-          margin-left: 20px;
         }
-      }
     }
   }
 }
@@ -203,32 +199,19 @@ a{
     h3 {
       font-size: 1.6em;
       font-weight: 800;
-      text-shadow: 0 1px 0 #aaa;
       margin-bottom: 5px;
       padding-top: 2px;
     }
   
-    a{
-      color: #444;
-      border-bottom-color: #444;
-    }			
   }
 }
 
 #footer {
-	color: #fff;
-	background: #f00;
+	color: #333;
 	bottom: 0px;
 	height: 30px;
 	line-height: 20px;
 	position: fixed;
-	width: 100%;
-	z-index: 12;
-
-	a {
-		border-bottom-color: #fff;
-		color: #fff;
-	}
 
   .content {
 		padding: 5px;
