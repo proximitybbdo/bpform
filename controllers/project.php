@@ -11,6 +11,8 @@ function project() {
     $project_url = isset($banner_get) ? dirname(BASE_PATH_DIR) . '/' : BASE_PATH_DIR;
 
     set("project_url", $project_url);
+    set("project", params('project'));
+    set("client", params('client'));
     set("banners_list", $files);
   
     if(isset($banner_get)) {

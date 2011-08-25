@@ -1,3 +1,4 @@
+<h2><?php echo(ucfirst($client) . ' - ' . $project); ?> <a id="back" href="<?php echo($base_path . $client); ?>">(all projects)</a></h2>
 <div id="menu">
   <p class="bannerlist">All versions:</p>
 
@@ -88,7 +89,7 @@
   
     <?php } else { ?>
   
-      Select a banner format.
+  Select a banner format.
   
     <?php } ?> 
   </div>

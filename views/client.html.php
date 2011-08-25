@@ -1,8 +1,8 @@
 <div id="projects">
   <div class="content">
-  <h2><?php echo($client); ?></h2>
+    <h2><?php echo(ucfirst($client)); ?></h2>
 
-  <p>This is an overview of all the projects that exists for <strong><?php echo($client); ?></strong>.</p>
+    <p>This is an overview of all the projects that exists for <strong><?php echo($client); ?></strong>.</p>
 
     <table class="projects-list common-table zebra-striped">
       <thead>
