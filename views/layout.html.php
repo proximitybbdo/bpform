@@ -3,13 +3,6 @@
 <head>
   <meta charset="utf-8">
 
-  <!--
-  <?php 
-echo($base_path . "\n");
-echo($base_path_dir);
-  ?>
-  -->
-	
   <title>Banner Platform</title>
 
   <link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap-1.1.0.min.css">

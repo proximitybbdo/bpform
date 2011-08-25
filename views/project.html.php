@@ -10,29 +10,26 @@
 
   <?php if($banner_is_selected) { ?>
   <!-- CURRENT BANNER -->
-  <ul id="topmenu">
-  <?php if($banner_has_versions) { ?>
+  <ul id="topmenu"><?php if($banner_has_versions) { ?>
     <li>	
       <p class="bannerversionslist">Has multiple versions:</p>
 
-      <form action="">
-        <select id="bannerversionslist">
-          <option value="-">Select banner version</option>
-          <option value="<?php echo $project_url; ?><?php echo $banner_parent_name; ?>" <?php if($banner_parent_name == $banner_get) { ?>selected="selected"<?php } ?>>Latest version</option>
-          <?php foreach($banners_versions as $version) { ?>
-          <option value="<?php echo $project_url; ?><?php echo $version->bannername; ?>" <?php if($version->bannername == $banner_get) { ?>selected="selected"<?php } ?>>Version "<?php echo $version.version_number; ?></option>
-          <?php } ?>
-        </select>
-      </form>
+      <select id="bannerversionslist">
+        <option value="-">Select banner version</option>
+        <option value="<?php echo $project_url; ?><?php echo $banner_parent_name; ?>" <?php if($banner_parent_name == $banner_get) { ?>selected="selected"<?php } ?>>Latest version</option>
+        <?php foreach($banners_versions as $version) { ?>
+        <option value="<?php echo $project_url; ?><?php echo $version->bannername; ?>" <?php if($version->bannername == $banner_get) { ?>selected="selected"<?php } ?>>Version "<?php echo $version.version_number; ?></option>
+        <?php } ?>
+      </select>
     </li>
     <?php } ?>
 
     <?php if($banner_langs) { ?>
     <li><em>switch banner to</em> <?php foreach($banner_langs as $lang) { ?><a href="<?php echo $project_url; ?><?php echo $lang.bannername; ?>"><?php echo $lang.bannername; ?></a><?php } ?></li>
-    <?php } ?>
-    <li>
+  <?php } ?>
+<li>
       <div class="banner-url">
-        <input type="text" onclick="this.select()" id="banner_url" value="<?php echo $banner_link; ?>" name="banner_url"/>
+        <input type="text" onclick="this.select()" id="banner_url" value="<?php echo $banner_link; ?>" name="banner_url" />
       </div>
     </li>
   </ul>
@@ -40,19 +37,19 @@
   <?php } ?>
 </div>
 
-<div id="banner">
+  <div id="banner">
   
   <?php if($banner_is_selected) { ?>
   <div id="tools">
-    <a href="#closetools" class="close">X</a>
-    <div class="content">
-      <h3>Tools</h3>
+      <a href="#closetools" class="close">X</a>
+      <div class="content">
+        <h3>Tools</h3>
 
-      <ul>
-        <li><a href="#showoutlines">show banner outline</a></li>
-      </ul>
-    </div>	
-  </div>
+        <ul>
+          <li><a href="#showoutlines">show banner outline</a></li>
+        </ul>
+      </div>	
+    </div>
   <?php } ?>
   
   <div class="content">

@@ -1,7 +1,6 @@
 @import "lib/bootstrap.less";
 
 html, body {
-
 	background: #fff url('../img/noise.png');
 }
 
@@ -10,6 +9,9 @@ body {
 	margin: 0 auto;
 }
 
+#container {
+  position: relative;
+}
 
 ul li {
 	list-style-type: none;
@@ -24,9 +26,6 @@ h1{
 	text-indent: -9999px;
 }
 
-a{
-}
-
 #menu {
 	height: 20px;
 	line-height: 20px;
@@ -34,8 +33,6 @@ a{
 
 	select {
 		font-family: Monaco, Consolas, 'Courier New', Courier, monospace;
-		font-size: 1.2em;
-		float: left;
 		margin-top: 2px;
 		margin-left: 10px;
 		width: 400px;
@@ -43,7 +40,7 @@ a{
 
   li .banner-url input {
     font-family: Monaco, Consolas, 'Courier New', Courier, monospace;
-    font-size: 1.3em;
+    font-size: 1.1em;
     text-shadow: 0 1px 0 #fff;
     line-height: 1.5;
   }
@@ -59,7 +56,9 @@ a{
 #topmenu {
   .clearfix;
 
-  float: right;
+  position: absolute;
+  right: 0;
+  top: 0;
   margin-right: -1px;
 
   li{
@@ -114,7 +113,6 @@ a{
     .projects-list {
       .clearfix;
 
-
     		.clearfix;
 
     		clear: both;
@@ -163,7 +161,7 @@ a{
 		padding: 0px 0px 5px 0px;
 		height: 30px;
 		overflow: hidden;
-		top: 10px;
+		top: 20px;
 		right: 15px;
 		width: 200px;
 
@@ -177,17 +175,15 @@ a{
 		}
 
 		.content {
-			padding-top: 6px;
+			padding-top: 0px;
 		}
 
     .close{
       font-family: Consolas, 'Courier New', Courier, monospace;
       font-weight: 800;
       font-size: 1.2em;
-      border: 1px solid #aaa;
       color: #aaa;
       text-align: center;
-      text-shadow: 0 1px 0 #fff;
       display: block;
 			height: 13px;
 			position: absolute;
@@ -197,10 +193,10 @@ a{
     }
   
     h3 {
-      font-size: 1.6em;
+      font-size: 1.3em;
       font-weight: 800;
       margin-bottom: 5px;
-      padding-top: 2px;
+      padding-top: 0px;
     }
   
   }
