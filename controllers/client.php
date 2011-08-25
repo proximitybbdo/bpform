@@ -12,6 +12,6 @@ function client() {
     
     return html('client.html.php', 'layout.html.php');
   } else 
-    header('Location: ' . BASE_PATH);
+    halt(NOT_FOUND);
 }
 

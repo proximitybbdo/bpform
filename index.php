@@ -33,5 +33,14 @@ function singulate_trailing_slashes($path) {
   return $path . '/';
 }
 
+// function for errors
+function not_found($errno, $errstr, $errfile=null, $errline=null) {
+    set('errno', $errno);
+    set('errstr', $errstr);
+    set('errfile', $errfile);
+    set('errline', $errline);
+    return html("error.html.php");
+}
+
 // Run it!
 run();
