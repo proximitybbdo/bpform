@@ -12,8 +12,11 @@
 			$this->deploy_folder = $deploy_dir;
 		}
 	
-		function run() {
-			if(is_dir($this->watch_folder) && is_dir($this->deploy_folder)) {
+    function run() {
+      if(!is_dir($this->deploy_folder))
+        mkdir($this->deploy_folder);
+
+			if(is_dir($this->watch_folder)) {
         $watch_files = $this->fetch_files($this->watch_folder);
 
         while($file = current($watch_files)) {
@@ -37,14 +40,14 @@
 		}
 	
 		function read() {
-			$deploy_files = $this->fetch_files($this->deploy_folder);
+      $deploy_files = $this->fetch_files($this->deploy_folder);
 			$deployed_files = array();
 			$deployed_versioned_files = array();
 		
 			// Save versioned 
 			while ($file = current($deploy_files)) {
-				$banner = new Banner($file);
-				
+        $banner = new Banner($file);
+
 				if($banner->isVersioned())
 					$deployed_versioned_files[count($deployed_versioned_files)] = $banner;
 				
@@ -55,8 +58,8 @@
 			
 			// Loop files, skip versioned
 			while ($file = current($deploy_files)) {
-				$banner = new Banner($file);
-				
+        $banner = new Banner($file);
+
 				if(!$banner->isVersioned()) {
 					$deployed_files[count($deployed_files)] = $banner;
 					
@@ -80,16 +83,16 @@
 		 * Fetch files from directory.
 		 */
 		function fetch_files($folder) {
-			$files = array();
-		
+      $files = array();
+
 			if ($dir = opendir($folder)) {
 				while ($file = readdir($dir)) {
-					clearstatcache();
-				
-					if(is_file($folder . $file) && $file != ".DS_Store")
-						$files[count($files)] = $file;
-				}
-			
+          clearstatcache();
+
+          if(is_file($folder . $file) && $file != ".DS_Store")
+            $files[count($files)] = $file;
+        }
+
 				closedir($dir);
 			}
 		
