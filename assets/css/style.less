@@ -1,45 +1,31 @@
 @import "lib/bootstrap.less";
 
+@content_width: 1000px;
+
 html, body {
 	background: #fff url('../img/noise.png');
 }
 
 body {
-	width: 1000px;
-	margin: 0 auto;
 }
 
 #container {
+	width: @content_width;
+	margin: 0 auto;
   position: relative;
   padding: 8px;
 }
 
 ul { list-style-type: none; }
 
-h1{
-  background: transparent url(../img/logo.png) no-repeat 10px center;
-  margin-top: 10px;
-	height: 120px;
-	width: 120px;
-	display: block;
-	line-height: 25px;
-	text-indent: -9999px;
-}
-
 #menu {
   .clearfix;
-	line-height: 20px;
+  line-height: 20px;
   padding: 10px 0;
 
-	select {
-		font-family: Monaco, Consolas, 'Courier New', Courier, monospace;
-		min-width: 200px;
-	}
-
-  li .banner-url input {
+  select {
     font-family: Monaco, Consolas, 'Courier New', Courier, monospace;
-    text-shadow: 0 1px 0 #fff;
-    line-height: 1.5;
+    min-width: 200px;
   }
 
   .bannerversionslist {
@@ -59,7 +45,7 @@ h1{
 
   position: absolute;
   right: 0;
-  top: 0;
+  top: 10px;
   margin-right: -1px;
 
   li{
@@ -67,11 +53,13 @@ h1{
     margin-left: 20px;
   
     .banner-url {
-    
       input {
-        font-size: 1.2em;
+        font-family: Monaco, Consolas, 'Courier New', Courier, monospace;
+        font-size: 1.1em;
         padding: 8px 10px;
         width: 400px;
+        line-height: 1.5;
+        height: 30px;
       }
     }
   }
@@ -171,20 +159,38 @@ h1{
       margin-bottom: 5px;
       padding-top: 0px;
     }
-  
   }
 }
 
 #footer {
-	color: #333;
+	color: white;
 	bottom: 0px;
-	height: 30px;
-	line-height: 20px;
 	position: fixed;
+  background-color: #333;
+  width: 100%;
 
   .content {
+    width: @content_width;
+    margin: 0 auto;
 		padding: 5px;
-	}
+
+    h1{
+      background: transparent url(../img/logo.png) no-repeat 10px center;
+      display: block;
+      float: left;
+      text-indent: -9999px;
+    }
+
+    p {
+      margin-top: 15px;
+      color: grey;
+      font-size: 80%;
+    }
+
+    a, a:visited {
+      color: white;
+    }
+  }
 }
 
 #flash {
