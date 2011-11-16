@@ -26,15 +26,15 @@
 			$this->name = $splitted[0] . $splitted[1];;
 			$this->size = explode("x", $splitted[2]);
 			$this->lang = strtoupper($splitted[3]);
-			
+
 			// Check if versioned file
 			$this->versioned = is_numeric($splitted[count($splitted) - 1]);
 			$this->version_number = intval($splitted[count($splitted) - 1]);
-			
+
 			if($this->isVersioned()) {
 				array_pop($splitted);
 				
-				$this->versioned_base = implode("_", $splitted);
+        $this->versioned_base = implode("_", $splitted);
 			}
 		}
 		
@@ -46,12 +46,12 @@
 			return count($this->versions) > 0;
 		}
 		
-		function addVersion($banner) {
-			$this->versions[count($this->versions)] = $banner;
+    function addVersion($banner) {
+      $this->versions[count($this->versions)] = $banner;
 		}
 	
-		function isBanner() {
-			return strtolower($this->ext) == $this->BANNER_EXT;
+    function isBanner() {
+      return strtolower($this->ext) === $this->BANNER_EXT;
 		}
 	
 		function getWidth() {

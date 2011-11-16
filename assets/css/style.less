@@ -14,9 +14,7 @@ body {
   padding: 8px;
 }
 
-ul li {
-	list-style-type: none;
-}
+ul { list-style-type: none; }
 
 h1{
   background: transparent url(../img/logo.png) no-repeat 10px center;
@@ -29,15 +27,13 @@ h1{
 }
 
 #menu {
-	height: 20px;
+  .clearfix;
 	line-height: 20px;
   padding: 10px 0;
 
 	select {
 		font-family: Monaco, Consolas, 'Courier New', Courier, monospace;
-		margin-top: 2px;
-		margin-left: 10px;
-		width: 400px;
+		min-width: 200px;
 	}
 
   li .banner-url input {
@@ -46,11 +42,15 @@ h1{
     line-height: 1.5;
   }
 
-  p.bannerlist {
-  	.clearfix;
-
-		float: left;
-		padding-top: 4px;
+  .bannerversionslist {
+    margin-left: 10px;
+    float: left;
+    width: 250px;
+  }
+  
+  .bannerlist {
+    margin-right: 10px;
+    float: left;
 	}
 }
 
@@ -66,31 +66,12 @@ h1{
     float: left;
     margin-left: 20px;
   
-    #bannerversionslist {
-      float: left;
-      margin-left: 10px;
-      width: 150px;
-    }
-    
-    p.bannerversionslist {
-      float: left;
-    }
-  
     .banner-url {
-      background-color: #FAFAFF;
-      border: 1px solid #D5D9E0;
-      margin: 0 0.5em;
-      padding: 0.2em 0.4em;
     
       input {
-        background-color: #FAFAFF;
         font-size: 1.2em;
-        border: 0 none;
+        padding: 8px 10px;
         width: 400px;
-        
-        outline-color:-moz-use-text-color;
-        outline-style:none;
-        outline-width:medium;
       }
     }
   }
@@ -107,11 +88,7 @@ h1{
     }
 
     .projects-list {
-      .clearfix;
-
     		.clearfix;
-
-    		clear: both;
 
     		a, label {
 					overflow: hidden;
@@ -144,8 +121,15 @@ h1{
   
 #banner {
 	position: relative;
+  .clearfix;
+
+  .content {
+    .clearfix;
+  }
 
 	#tools{
+	  display: none;
+
     color: #fff;
     background: #ddd;
 		position: absolute;
@@ -206,5 +190,5 @@ h1{
 #flash {
   display: block;
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 10px;
 }

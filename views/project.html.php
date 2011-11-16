@@ -1,36 +1,41 @@
 <h2><?php echo(ucfirst($client) . ' - ' . $project); ?> <a id="back" href="<?php echo($base_path . $client); ?>">(all projects)</a></h2>
 <div id="menu">
-  <p class="bannerlist">All versions:</p>
 
-  <select id="bannerlist">
-    <option value="-">Select banner format</option>
-    <?php foreach($banners_list as $banner) { ?>
-    <option value="<?php echo $project_url; ?><?php echo $banner->bannername; ?>" <?php if($banner->bannername == $banner_get) { ?>selected="selected"<?php } ?>><?php echo $banner->bannername; ?></option>
-    <?php } ?> 
-  </select>
+  <section class="well bannerlist">
+    <p>All sizes:</p>
+    <select id="bannerlist">
+      <option value="-">Select banner format</option>
+      <?php foreach($banners_list as $banner) { ?>
+      <option value="<?php echo $project_url; ?><?php echo $banner->bannername; ?>" <?php if($banner->bannername == $banner_get) { ?>selected="selected"<?php } ?>><?php echo $banner->bannername; ?></option>
+      <?php } ?> 
+    </select>
+  </section>
+
+  <?php if($banner_has_versions) { ?>
+  <section class="well bannerversionslist">
+    <p class="bannerversionslist">Has multiple versions:</p>
+    <select id="bannerversionslist">
+      <option value="-">Select banner version</option>
+      <option value="<?php echo $project_url; echo $banner_parent_name; ?>" <?php if($banner_parent_name == $banner_get) { ?>selected="selected"<?php } ?>>Latest version</option>
+      <?php foreach($banners_versions as $version) { ?>
+      <option value="<?php echo $project_url; ?><?php echo $version->bannername; ?>" <?php if($version->bannername == $banner_get) { ?>selected="selected"<?php } ?>>Version <?php echo $version->version_number; ?></option>
+      <?php } ?>
+    </select>
+  </section>
+  <?php } ?>
 
   <?php if($banner_is_selected) { ?>
   <!-- CURRENT BANNER -->
-  <ul id="topmenu"><?php if($banner_has_versions) { ?>
-    <li>	
-      <p class="bannerversionslist">Has multiple versions:</p>
-
-      <select id="bannerversionslist">
-        <option value="-">Select banner version</option>
-        <option value="<?php echo $project_url; ?><?php echo $banner_parent_name; ?>" <?php if($banner_parent_name == $banner_get) { ?>selected="selected"<?php } ?>>Latest version</option>
-        <?php foreach($banners_versions as $version) { ?>
-        <option value="<?php echo $project_url; ?><?php echo $version->bannername; ?>" <?php if($version->bannername == $banner_get) { ?>selected="selected"<?php } ?>>Version "<?php echo $version.version_number; ?></option>
-        <?php } ?>
-      </select>
-    </li>
-    <?php } ?>
+  <ul id="topmenu">
 
     <?php if($banner_langs) { ?>
-    <li><em>switch banner to</em> <?php foreach($banner_langs as $lang) { ?><a href="<?php echo $project_url; ?><?php echo $lang.bannername; ?>"><?php echo $lang.bannername; ?></a><?php } ?></li>
+    <li><em>switch banner to</em> <?php foreach($banner_langs as $lang) { ?><a href="<?php echo $project_url; ?><?php echo $lang->bannername; ?>"><?php echo $lang->bannername; ?></a><?php } ?></li>
   <?php } ?>
 <li>
       <div class="banner-url">
-        <input type="text" onclick="this.select()" id="banner_url" value="<?php echo $banner_link; ?>" name="banner_url" />
+        <form action="#">
+          <input type="text" class="xxlarge" onclick="this.select()" id="banner_url" value="<?php echo $banner_link; ?>" name="banner_url" />
+        </form>
       </div>
     </li>
   </ul>

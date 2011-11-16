@@ -21,7 +21,7 @@
 
         while($file = current($watch_files)) {
           $hashed = $this->hash_file($this->watch_folder . $file);
-          
+
           if(!$this->file_exists_in_db($hashed)) { // Check if file isn't processed already
             if(file_exists($this->deploy_folder . $file)) // Check if files already exists in deploy
               $this->rename_versioning_file($this->deploy_folder, $file); // First rename
@@ -52,26 +52,26 @@
 					$deployed_versioned_files[count($deployed_versioned_files)] = $banner;
 				
 				next($deploy_files); // Next file
-			}
-			
+      }
+
 			reset($deploy_files);
 			
 			// Loop files, skip versioned
-			while ($file = current($deploy_files)) {
+      while ($file = current($deploy_files)) {
         $banner = new Banner($file);
 
-				if(!$banner->isVersioned()) {
+        if(!$banner->isVersioned()) {
 					$deployed_files[count($deployed_files)] = $banner;
 					
 					reset($deployed_versioned_files);
 					
-					while ($version = current($deployed_versioned_files)) {
-						if($version->versioned_base == $banner->bannername)
+          while ($version = current($deployed_versioned_files)) {
+            if($version->versioned_base == $banner->bannername)
 							$banner->addVersion($version);
 					
 						next($deployed_versioned_files);
 					}
-				}
+        }
 				
 				next($deploy_files); // Next file
 			}
@@ -102,7 +102,7 @@
 		/**
 		 * Rename files with versioning check
 		 */
-		function rename_versioning_file($trgt_dir, $trgt_file) {
+    function rename_versioning_file($trgt_dir, $trgt_file) {
 			$ctr = 1;
 			$name = current(explode(".", $trgt_file));
 			$ext = end(explode(".", $trgt_file));
