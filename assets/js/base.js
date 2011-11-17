@@ -1,5 +1,3 @@
-
-// Function will be called when jQuery is loaded and ready.
 $(document).ready(function(){
 	
 	$("#bannerlist").change(function() {
@@ -13,7 +11,6 @@ $(document).ready(function(){
 	});
 	
 	initTools();
-	
 });
 
 function initTools() {

@@ -232,7 +232,7 @@ ul{list-style-type:none;}
 #menu{zoom:1;line-height:20px;padding:10px 0;}#menu:before,#menu:after{display:table;content:"";}
 #menu:after{clear:both;}
 #menu select{font-family:Monaco,Consolas,'Courier New',Courier,monospace;min-width:200px;}
-#menu .bannerversionslist{margin-left:10px;float:left;width:250px;}
+#menu .bannerversionslist{float:left;width:250px;}
 #menu .bannerlist{margin-right:10px;float:left;}
 #topmenu{zoom:1;position:absolute;right:0;top:10px;margin-right:-1px;}#topmenu:before,#topmenu:after{display:table;content:"";}
 #topmenu:after{clear:both;}
@@ -253,7 +253,7 @@ ul{list-style-type:none;}
 #banner #tools .content{padding-top:0px;}
 #banner #tools .close{font-family:Consolas,'Courier New',Courier,monospace;font-weight:800;color:#aaa;text-align:center;display:block;height:13px;position:absolute;top:10px;right:10px;width:10px;}
 #banner #tools h3{font-weight:800;margin-bottom:5px;padding-top:0px;}
-#footer{color:white;bottom:0px;position:fixed;background-color:#333;width:100%;}#footer .content{width:1000px;margin:0 auto;padding:5px;}#footer .content h1{background:transparent url(../img/logo.png) no-repeat 10px center;display:block;float:left;text-indent:-9999px;}
+#footer{color:white;bottom:0px;position:fixed;background-color:#333;width:100%;}#footer .content{width:1000px;margin:0 auto;padding:5px;}#footer .content h1{background:transparent url(../img/logo.png) no-repeat 10px center;display:block;float:left;text-indent:-9999px;margin-bottom:0;line-height:40px;}
 #footer .content p{margin-top:15px;color:grey;font-size:80%;}
 #footer .content a,#footer .content a:visited{color:white;}
 #flash{display:block;margin:0 auto;margin-top:10px;}

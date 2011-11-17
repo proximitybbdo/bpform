@@ -4,7 +4,6 @@
   <section class="well bannerlist">
     <p>All sizes:</p>
     <select id="bannerlist">
-      <option value="-">Select banner format</option>
       <?php foreach($banners_list as $banner) { ?>
       <option value="<?php echo $project_url; ?><?php echo $banner->bannername; ?>" <?php if($banner->bannername == $banner_get) { ?>selected="selected"<?php } ?>><?php echo $banner->bannername; ?></option>
       <?php } ?> 
@@ -15,7 +14,6 @@
   <section class="well bannerversionslist">
     <p class="bannerversionslist">Has multiple versions:</p>
     <select id="bannerversionslist">
-      <option value="-">Select banner version</option>
       <option value="<?php echo $project_url; echo $banner_parent_name; ?>" <?php if($banner_parent_name == $banner_get) { ?>selected="selected"<?php } ?>>Latest version</option>
       <?php foreach($banners_versions as $version) { ?>
       <option value="<?php echo $project_url; ?><?php echo $version->bannername; ?>" <?php if($version->bannername == $banner_get) { ?>selected="selected"<?php } ?>>Version <?php echo $version->version_number; ?></option>

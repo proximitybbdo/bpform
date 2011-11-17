@@ -31,7 +31,8 @@ function project() {
       }
     
       if(!is_null($bf)) {
-        set("banner_get", $bf->bannername);
+        // set("banner_get", $bf->bannername);
+        set("banner_get", $banner_get);
         set("banner_link", "http://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]);
 
         set("banner_path", BASE_PATH . $bp->getDeployFolder() . $bf->filename);
@@ -42,7 +43,8 @@ function project() {
 
 
         if($bf->hasVersions()) {
-          set("banner_parent_name", $bf->versioned_base);
+          // set("banner_parent_name", $bf->versioned_base);
+          set("banner_parent_name", $bf->bannername);
           set("banners_versions", $bf->versions);
 
           foreach($bf->versions as $banner) {
