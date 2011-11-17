@@ -2,7 +2,7 @@
 <div id="menu">
 
   <section class="well bannerlist">
-    <p>All sizes:</p>
+    <p>Select banner format</p>
     <select id="bannerlist">
       <option value="">-- select banner</option>
       <?php foreach($banners_list as $banner) { ?>
@@ -90,11 +90,6 @@
       <p>Als je zeker bent dat je de flash plugin geinstalleerd hebt kan je kan ook binnengaan zonder <a href="?detectflash=false">flash plugin detectie</a>.</p>
     </div>
     <!-- CURRENT BANNER -->
-  
-    <?php } else { ?>
-  
-  Select a banner format.
-  
     <?php } ?> 
   </div>
 </div>
