@@ -63,15 +63,15 @@
     <script type="text/javascript">
       //<![CDATA[
         var flashvars = { 	
-          clickTag: "<?php echo(url_for('clicktag/clicktag')); ?>", 
-          clickTAG: "<?php echo(url_for('clicktag/clickTAG')); ?>", 
-          url: "<?php echo(url_for('clicktag/url')); ?>" 
+          clickTag: "javascript:clicktagTest('clickTag')", 
+          clickTAG: "javascript:clicktagTest('clickTAG')", 
+          url: "javascript:clicktagTest('url')" 
         };
                   
         var params = { allowFullScreen: true, wmode: "transparent", allowScriptAccess: "always" };
         var attributes = { id: "flash" };
     
-        swfobject.embedSWF("<?php echo $banner_path; ?>", "flash_alternative", "<?php echo $banner_width; ?>", "<?php echo $banner_height; ?>", "9.0.0", "<?php echo $base_path; ?>assets/swf/expressInstall.swf", flashvars, params, attributes);
+        swfobject.embedSWF("<?php echo $banner_path; ?>", "flash_alternative", "<?php echo $banner_width; ?>", "<?php echo $banner_height; ?>", "8.0.0", "<?php echo $base_path; ?>assets/swf/expressInstall.swf", flashvars, params, attributes);
       //]]>
     </script>
 
