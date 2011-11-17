@@ -4,6 +4,7 @@
   <section class="well bannerlist">
     <p>All sizes:</p>
     <select id="bannerlist">
+      <option value="">-- select banner</option>
       <?php foreach($banners_list as $banner) { ?>
       <option value="<?php echo $project_url; ?><?php echo $banner->bannername; ?>" <?php if($banner->bannername == $banner_get) { ?>selected="selected"<?php } ?>><?php echo $banner->bannername; ?></option>
       <?php } ?> 
