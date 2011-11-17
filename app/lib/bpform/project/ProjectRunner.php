@@ -3,7 +3,7 @@
 	class ProjectRunner {
 		var $project_folder;
 		var $watch_folder = "";
-		var $deploy_folder = ".deploy/";
+		var $deploy_folder = "deploy/";
 		
 		var $watcher;
 		var $templater;
