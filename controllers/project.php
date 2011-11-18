@@ -52,13 +52,13 @@ function project() {
             }
           }
         }
+
+        set("banner_meta", get_banner_meta($_SERVER["DOCUMENT_ROOT"] . _c('root') . $bp->getDeployFolder() . $bf->filename));
       }
     }
   
     set("banner_path", $banner_path);
     set("banner_is_selected", isset($banner_get));
-
-    set("banner_meta", get_banner_meta($_SERVER["DOCUMENT_ROOT"] . _c('root') . $bp->getDeployFolder() . $bf->filename));
 
     return html('project.html.php', 'layout.html.php');
   } else
