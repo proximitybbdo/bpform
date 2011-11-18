@@ -24,6 +24,15 @@
   <?php } ?>
 
   <?php if($banner_is_selected) { ?>
+
+  <section class="well bannerinfo">
+    <ul>
+      <li>Flash Player: <strong><?php echo($banner_meta->version); ?></strong></li>
+      <li>Width/height: <strong><?php echo($banner_meta->width); ?>px / <?php echo($banner_meta->height); ?>px</strong></li>
+      <li>Size: <strong><?php echo($banner_meta->size); ?></strong></li>
+    </ul>
+  </section>
+
   <!-- CURRENT BANNER -->
   <ul id="topmenu">
 
@@ -64,22 +73,22 @@
     <script type="text/javascript">
       //<![CDATA[
         var flashvars = { 	
-          clickTag: "javascript:clicktagTest('clickTag')", 
-          clickTAG: "javascript:clicktagTest('clickTAG')", 
-          url: "javascript:clicktagTest('url')" 
+          clickTag: "<?php echo(url_for('/clicktag/clicktag')); ?>", 
+          clickTAG: "<?php echo(url_for('/clicktag/clickTAG')); ?>", 
+          url:      "<?php echo(url_for('/clicktag/url')); ?>" 
         };
-                  
+
         var params = { allowFullScreen: true, wmode: "transparent", allowScriptAccess: "always" };
         var attributes = { id: "flash" };
-    
-        swfobject.embedSWF("<?php echo $banner_path; ?>", "flash_alternative", "<?php echo $banner_width; ?>", "<?php echo $banner_height; ?>", "8.0.0", "<?php echo $base_path; ?>assets/swf/expressInstall.swf", flashvars, params, attributes);
+
+        swfobject.embedSWF("<?php echo $banner_path; ?>", "flash_alternative", "<?php echo $banner_meta->width; ?>", "<?php echo $banner_meta->height; ?>", "8.0.0", "<?php echo $base_path; ?>assets/swf/expressInstall.swf", flashvars, params, attributes);
       //]]>
     </script>
 
     <style type="text/css">
       #flash {
-        width: <?php echo $banner_width; ?>px; 
-        height: <?php echo $banner_height; ?>px;
+        width: <?php echo $banner_meta->width; ?>px; 
+        height: <?php echo $banner_meta->height; ?>px;
       }
     </style>
 

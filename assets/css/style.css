@@ -232,8 +232,10 @@ ul{list-style-type:none;}
 #menu{zoom:1;line-height:20px;padding:10px 0;}#menu:before,#menu:after{display:table;content:"";}
 #menu:after{clear:both;}
 #menu select{font-family:Monaco,Consolas,'Courier New',Courier,monospace;min-width:200px;}
-#menu .bannerversionslist{float:left;width:250px;}
-#menu .bannerlist{margin-right:10px;float:left;}
+#menu .bannerversionslist,#menu .bannerlist,#menu .bannerinfo{float:left;}
+#menu .bannerversionslist{width:250px;margin-right:10px;}
+#menu .bannerlist{margin-right:10px;}
+#menu .bannerinfo ul{margin:0;}
 #topmenu{zoom:1;position:absolute;right:0;top:10px;margin-right:-1px;}#topmenu:before,#topmenu:after{display:table;content:"";}
 #topmenu:after{clear:both;}
 #topmenu li{float:left;margin-left:20px;}#topmenu li .banner-url input{font-family:Monaco,Consolas,'Courier New',Courier,monospace;font-size:1.1em;padding:8px 10px;width:400px;line-height:1.5;height:30px;}

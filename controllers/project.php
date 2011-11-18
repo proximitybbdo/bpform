@@ -1,4 +1,5 @@
 <?php
+include(dirname(dirname(__FILE__)).'/app/lib/swfreader/swfreader.php');
 
 function project() {
   $requested_dir = "clients/" . params('client') . "/" . params('project');
@@ -35,9 +36,7 @@ function project() {
         set("banner_get", $banner_get);
         set("banner_link", "http://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]);
 
-        set("banner_path", BASE_PATH . $bp->getDeployFolder() . $bf->filename);
-        set("banner_width", $bf->getWidth());
-        set("banner_height", $bf->getHeight());
+        $banner_path = BASE_PATH . $bp->getDeployFolder() . $bf->filename;
 
         set("banner_has_versions", $bf->hasVersions());
 
@@ -49,18 +48,36 @@ function project() {
 
           foreach($bf->versions as $banner) {
             if($banner->bannername == $banner_get) {
-              set("banner_path", BASE_PATH . $bp->getDeployFolder() . $banner->filename);
+              $banner_path = BASE_PATH . $bp->getDeployFolder() . $banner->filename;
             }
           }
         }
       }
     }
   
+    set("banner_path", $banner_path);
     set("banner_is_selected", isset($banner_get));
+
+    set("banner_meta", get_banner_meta(dirname(dirname(__FILE)) . $banner_path));
 
     return html('project.html.php', 'layout.html.php');
   } else
     header("Location: " . dirname($_SERVER["REDIRECT_URL"]));
+}
+
+function get_banner_meta($file) {
+  $meta = new StdClass();
+
+  // Create a new SWF header object
+  $swf = new swfheader(false);
+  $swf->loadswf($file);
+
+  $meta->version = $swf->version;
+  $meta->width = $swf->width;
+  $meta->height = $swf->height;
+  $meta->size = formatBytes($file, "KB");
+
+  return $meta;
 }
 
 /**
