@@ -15,7 +15,7 @@ function project() {
     set("project", params('project'));
     set("client", params('client'));
     set("banners_list", $files);
-  
+
     if(isset($banner_get)) {
       $bf = exists_banner($files, $banner_get);
 
@@ -25,12 +25,12 @@ function project() {
 
         if($bf->hasVersions()) {
           $bf_base = exists_banner($files, $bf->versioned_base);
-          
+
           if(is_null($bf_base))
             $bf = null; // Reset
         }	
       }
-    
+
       if(!is_null($bf)) {
         // set("banner_get", $bf->bannername);
         set("banner_get", $banner_get);
@@ -58,7 +58,7 @@ function project() {
     set("banner_path", $banner_path);
     set("banner_is_selected", isset($banner_get));
 
-    set("banner_meta", get_banner_meta(dirname(dirname(__FILE)) . $banner_path));
+    set("banner_meta", get_banner_meta($_SERVER["DOCUMENT_ROOT"] . _c('root') . $bp->getDeployFolder() . $bf->filename));
 
     return html('project.html.php', 'layout.html.php');
   } else
