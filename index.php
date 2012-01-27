@@ -28,7 +28,7 @@ function configure() {
 
 function singulate_trailing_slashes($path) {
   while(substr($path, -1) == '/')
-   $path = substr($path, 0, -1); 
+    $path = substr($path, 0, -1);
 
   return $path . '/';
 }
@@ -44,3 +44,4 @@ function not_found($errno, $errstr, $errfile=null, $errline=null) {
 
 // Run it!
 run();
+
