@@ -53,7 +53,7 @@ function project() {
           }
         }
 
-        set("banner_meta", get_banner_meta($_SERVER["DOCUMENT_ROOT"] . _c('root') . $bp->getDeployFolder() . $bf->filename));
+        set("banner_meta", get_banner_meta($_SERVER["DOCUMENT_ROOT"] . BASE_PATH . $bp->getDeployFolder() . $bf->filename));
       }
     }
   

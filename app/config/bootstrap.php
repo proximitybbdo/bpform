@@ -27,6 +27,11 @@ foreach (glob($lib_directory . 'proximitybbdo/*.php') as $filename)
 // Load librarues like this: ``Zend_Loader::loadClass('Zend_Db');``
 require_once('Zend/Loader.php');
 
+// Define the base path based on the index.php file (and its location)
+$script_dir = dirname(dirname($_SERVER['SCRIPT_NAME']) . '/.');
+
+define('BASE_PATH', str_replace('\\', '', $script_dir . ($script_dir === '/' ? '' : '/' )));
+
 // Init our skeleton app.
 // Optionally pass the path to another config file
 ProximityApp::init(dirname(__FILE__) . "/config.yaml");
