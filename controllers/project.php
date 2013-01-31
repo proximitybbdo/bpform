@@ -47,7 +47,7 @@ function project() {
           set("banners_versions", $bf->versions);
 
           foreach($bf->versions as $banner) {
-            if($banner->bannername == $banner_get) {
+            if($banner->bannername === $banner_get) {
               $banner_path = BASE_PATH . $bp->getDeployFolder() . $banner->filename;
             }
           }
@@ -86,13 +86,13 @@ function get_banner_meta($file) {
 function exists_banner($files, $banner) {
   reset($files);
 
-  while ($bf = current($files)) {
-    if(	$bf->bannername == $banner) // && $bf->isBanner())
+  while($bf = current($files)) {
+    if($bf->bannername === $banner) // && $bf->isBanner())
       return $bf;
 
     if($bf->hasVersions()) {
-      foreach ($bf->versions as $version) {
-        if($version->bannername == $banner)
+      foreach($bf->versions as $version) {
+        if($version->bannername === $banner)
           return $bf;
       }
     }

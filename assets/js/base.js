@@ -1,21 +1,4 @@
-$(document).ready(function(){
-	
-	$("#bannerlist").change(function() {
-	  if(this.value != '-')
-      document.location.href = this.value;
-	});
-	
-	$("#bannerversionslist").change(function() {
-	  if(this.value != '-')
-      document.location.href = this.value;
-	});
-	
-	initTools();
-});
-
 function initTools() {
-	$("#tools").click(setToolsOpener);
-		
 	$("#tools a[href='#showoutlines']").click(function() {
 		$("#flash").css("border", "1px solid red");
 		
@@ -44,4 +27,22 @@ function initTools() {
 
 		return false;
 	}
+
+	$("#tools").click(setToolsOpener);
 }
+
+$(document).ready(function(){
+	$("#bannerlist").change(function() {
+    if(this.value !== '-') {
+      document.location.href = this.value;
+    }
+	});
+	
+	$("#bannerversionslist").change(function() {
+    if(this.value !== '-') {
+      document.location.href = this.value;
+    }
+	});
+	
+	initTools();
+});

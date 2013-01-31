@@ -22,20 +22,22 @@
 			$this->filename = $file;
 			$this->bannername = $splitted_ext[0];
 		
-			$this->ext = $splitted_ext[2];
-			$this->name = $splitted[0] . $splitted[1];;
+			$this->ext = $splitted_ext[1];
+			$this->name = $splitted[0] . $splitted[1];
 			$this->size = explode("x", $splitted[2]);
 			$this->lang = strtoupper($splitted[3]);
 
-			// Check if versioned file
-			$this->versioned = is_numeric($splitted[count($splitted) - 1]);
-			$this->version_number = intval($splitted[count($splitted) - 1]);
+      // Check if versioned file
+      $version_nr = $splitted[count($splitted) - 1];
+
+			$this->versioned = is_numeric($version_nr);
+			$this->version_number = intval($version_nr);
 
 			if($this->isVersioned()) {
 				array_pop($splitted);
 				
         $this->versioned_base = implode("_", $splitted);
-			}
+      }
 		}
 		
 		function isVersioned() {

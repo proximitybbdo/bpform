@@ -19,7 +19,7 @@ class Project {
 		if (!file_exists($path))
 			return 0;
 
-		$extension = end(explode(".", $path));     
+		$extension = explode(".", $path)[0];     
 		
 		if (is_file($path) && in_array($extension, $allowedExtensions))
 			return filemtime($path);
