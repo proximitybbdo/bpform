@@ -52,5 +52,3 @@ class ClientRunner {
 		return $files;
 	}
 }
-
-?>

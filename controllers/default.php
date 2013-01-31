@@ -10,7 +10,6 @@ function index_catchall() {
 
 function clicktag() {
   set('clicktag', params('clicktag'));
+
   return html('clicktag.html.php', 'layout.html.php');
 }
-
-?>

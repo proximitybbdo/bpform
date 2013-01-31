@@ -8,8 +8,9 @@ require_once('app/config/routes.php');
 // You can place all the Zend libraries here, you want to be loaded.
 Zend_Loader::loadClass('Zend_Db');
 
-foreach (glob($lib_directory . 'bpform/*/*.php') as $filename)
+foreach (glob($lib_directory . 'bpform/*/*.php') as $filename) {
   require_once($filename);
+}
 
 // Default configuration. You probably won't need to change any of this.
 function configure() {
@@ -27,8 +28,9 @@ function configure() {
 }
 
 function singulate_trailing_slashes($path) {
-  while(substr($path, -1) == '/')
+  while(substr($path, -1) == '/') {
     $path = substr($path, 0, -1);
+  }
 
   return $path . '/';
 }
@@ -44,4 +46,3 @@ function not_found($errno, $errstr, $errfile=null, $errline=null) {
 
 // Run it!
 run();
-

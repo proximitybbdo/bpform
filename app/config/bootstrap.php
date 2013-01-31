@@ -20,8 +20,9 @@ error_reporting(E_ALL & ~E_STRICT & ~E_WARNING & ~E_NOTICE & ~E_DEPRECATED);
 ini_set('display_errors', 1);
 
 // Load all Proximity BBDO libraries.
-foreach (glob($lib_directory . 'proximitybbdo/*.php') as $filename)
+foreach (glob($lib_directory . 'proximitybbdo/*.php') as $filename) {
 	require_once($filename);
+}
 
 // Include Zend Loader class.
 // Load librarues like this: ``Zend_Loader::loadClass('Zend_Db');``

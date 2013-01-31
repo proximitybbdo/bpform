@@ -13,13 +13,13 @@ class Project {
 		$this->mod_date = date("F j, Y, g:i a", $this->mod_time);
 	}
 	
-	function getLastModificationTime($path) {
+  function getLastModificationTime($path) {
 		$allowedExtensions = array('swf', 'jpg', 'jpeg', 'gif', 'png');
 
 		if (!file_exists($path))
 			return 0;
 
-		$extension = explode(".", $path)[0];     
+    $extension = explode(".", $path)[1];
 		
 		if (is_file($path) && in_array($extension, $allowedExtensions))
 			return filemtime($path);
@@ -34,5 +34,3 @@ class Project {
 		return $ret;
 	}
 }
-
-?>

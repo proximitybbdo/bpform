@@ -1,4 +1,5 @@
 <?php
+
 include(dirname(dirname(__FILE__)).'/app/lib/swfreader/swfreader.php');
 
 function project() {
@@ -26,8 +27,9 @@ function project() {
         if($bf->hasVersions()) {
           $bf_base = exists_banner($files, $bf->versioned_base);
 
-          if(is_null($bf_base))
+          if(is_null($bf_base)) {
             $bf = null; // Reset
+          }
         }	
       }
 
@@ -39,7 +41,6 @@ function project() {
         $banner_path = BASE_PATH . $bp->getDeployFolder() . $bf->filename;
 
         set("banner_has_versions", $bf->hasVersions());
-
 
         if($bf->hasVersions()) {
           // set("banner_parent_name", $bf->versioned_base);
@@ -61,8 +62,9 @@ function project() {
     set("banner_is_selected", isset($banner_get));
 
     return html('project.html.php', 'layout.html.php');
-  } else
+  } else {
     header("Location: " . dirname($_SERVER["REDIRECT_URL"]));
+  }
 }
 
 function get_banner_meta($file) {
@@ -84,20 +86,18 @@ function get_banner_meta($file) {
 * Does given banner exists in deployed files.
 */
 function exists_banner($files, $banner) {
-  reset($files);
-
-  while($bf = current($files)) {
-    if($bf->bannername === $banner) // && $bf->isBanner())
+  foreach($files as $bf) {
+    if($bf->bannername === $banner) {
       return $bf;
+    }
 
     if($bf->hasVersions()) {
       foreach($bf->versions as $version) {
-        if($version->bannername === $banner)
+        if($version->bannername === $banner) {
           return $bf;
+        }
       }
     }
-
-    next($files);
   }
 
   return NULL;

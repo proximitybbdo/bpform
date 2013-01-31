@@ -14,6 +14,7 @@
   <div id="footer">
     <div class="content">
       <h1>Proximity BBDO</h1>
+
       <p>Are you experiencing problems? <a href="mailto:pieter.michels@proximity.bbdo.be">Contact us</a> and we will help you further.</p>
     </div>
   </div>

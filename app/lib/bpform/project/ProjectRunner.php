@@ -31,5 +31,3 @@
       return $this->project_folder . $this->deploy_folder;
     }
 	}
-
-?>

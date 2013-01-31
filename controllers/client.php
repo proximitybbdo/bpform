@@ -11,7 +11,8 @@ function client() {
     set('client', params('client'));
     
     return html('client.html.php', 'layout.html.php');
-  } else 
+  } else  {
     halt(NOT_FOUND);
+  }
 }
 
