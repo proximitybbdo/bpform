@@ -3,15 +3,15 @@
 	class WatchDeployEngine {
 		var $watch_folder = "";
     var $deploy_folder = "";
-  
+
     var $db_ready = false;
     var $db_inst;
-	
+
 		function __construct($watch_dir, $deploy_dir) {
 			$this->watch_folder = $watch_dir;
 			$this->deploy_folder = $deploy_dir;
 		}
-	
+
     function run() {
       if(!is_dir($this->deploy_folder)) {
         mkdir($this->deploy_folder);
@@ -32,19 +32,19 @@
               $this->file_save_in_db($hashed); // Save hash of file in db
 
               touch($this->deploy_folder . $file); // Set modification date to current
-            }  
+            }
           }
 				}
 			} else
 				throw new Exception("Folders are not valid.");
 		}
-	
+
 		function read() {
       $deploy_files = $this->fetch_files($this->deploy_folder);
 			$deployed_files = array();
 			$deployed_versioned_files = array();
-		
-      // Save versioned 
+
+      // Save versioned
       foreach($deploy_files as $file) {
         $banner = new Banner($file);
 
@@ -52,14 +52,14 @@
           $deployed_versioned_files[] = $banner;
         }
       }
-			
+
 			// Loop files, skip versioned
       foreach($deploy_files as $file) {
         $banner = new Banner($file);
 
         if(!$banner->isVersioned()) {
 					$deployed_files[] = $banner;
-					
+
           foreach($deployed_versioned_files as $version) {
             if($version->versioned_base == $banner->bannername) {
 							$banner->addVersion($version);
@@ -67,10 +67,10 @@
 					}
         }
 			}
-		
+
 			return $deployed_files;
 		}
-	
+
 		/**
 		 * Fetch files from directory.
 		 */
@@ -87,10 +87,10 @@
 
 				closedir($dir);
 			}
-		
+
 			return $files;
 		}
-	
+
 		/**
 		 * Rename files with versioning check
 		 */
@@ -98,15 +98,11 @@
 			$ctr = 1;
       $name = current(explode(".", $trgt_file));
 
-      var_dump($trgt_file);
-      
       $ext = explode(".", $trgt_file)[1];
-		
+
       while(file_exists($trgt_dir . $name . "_" . $ctr . "." . $ext)) {
 				$ctr++;
       }
-
-      var_dump($trgt_dir . $name . "_" . $ctr . "." . $ext);
 
 			rename($trgt_dir . $trgt_file, $trgt_dir . $name . "_" . $ctr . "." . $ext);
     }
@@ -119,18 +115,18 @@
           die($e);
         }
       }
-      
+
       if($this->db_inst) {
         if(!$this->db_inst->exec("SELECT * FROM files")) {
           $query = 'CREATE TABLE files (file_hash TEXT)';
-                 
+
           $this->db_inst->exec($query);
         }
-      } 
+      }
     }
 
     function file_exists_in_db($hash) {
-      $this->init_db(); 
+      $this->init_db();
 
       $query = "SELECT * FROM files WHERE file_hash = '" . $hash . "'";
       $result = $this->db_inst->query($query);
@@ -143,14 +139,14 @@
     }
 
     function file_save_in_db($hash) {
-      $this->init_db(); 
-      
+      $this->init_db();
+
       $query = 'INSERT INTO files (file_hash) VALUES ("' . $hash . '")';
 
       $this->db_inst->exec($query);
     }
 
     function hash_file($file) {
-      return md5_file($file); 
+      return md5_file($file);
     }
 	}
